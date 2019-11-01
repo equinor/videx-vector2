@@ -1,9 +1,10 @@
 {
   "name": "@equinor/videx-vector2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vector2 class library written in javascript.",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
+  "browser": "dist/bundle.umd.js",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "rollup -c",
@@ -46,5 +47,8 @@
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.1.2"
+  },
+  "dependencies": {
+    "@equinor/videx-linear-algebra": "^1.0.4"
   }
 }

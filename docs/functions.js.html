@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>functions.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,62 +32,127 @@
 
 <div id="main">
     
+    <h1 class="page-title">functions.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Rotate vector by a given amount of radians.
+ * @param {Number[]} v Vector to rotate
+ * @param {Number} rad Angle in radians
+ * @param {Number[]} [target=v] Target for storing the results (Default: v)
+ * @return {Number} Rotated vector
+ */
+export function rotate(v, rad, target) {
+  if (!target) target = v;
+  const cr = Math.cos(rad);
+  const sr = Math.sin(rad);
+  target[0] = cr * v[0] - sr * v[1];
+  target[1] = sr * v[0] + cr * v[1];
+  return target;
+}
 
+/**
+ * Rotate vector by 90 degrees. (Counter-clockwise)
+ * @param {Number[]} v Vector to rotate
+ * @param {Number[]} [target=v] Target for storing the results (Default: v)
+ * @return {Number} Rotated vector
+ */
+export function rotate90(v, target) {
+  if (!target) target = v;
+  target[0] = -v[1];
+  target[1] = v[0];
+  return target;
+}
 
-    <section class="package">
-        <h3> </h3>		
-    </section>
+/**
+ * Flip/Rotate vector by 180 degrees.
+ * @param {Number[]} v Vector to rotate
+ * @param {Number[]} [target=v] Target for storing the results (Default: v)
+ * @return {Number} Rotated vector
+ */
+export function rotate180(v, target) {
+  if (!target) target = v;
+  target[0] = -v[0];
+  target[1] = -v[1];
+  return target;
+}
 
+/**
+ * Rotate vector by 270 degrees. (Counter-clockwise)
+ * @param {Number[]} v Vector to rotate
+ * @param {Number[]} [target=v] Target for storing the results (Default: v)
+ * @return {Number} Rotated vector
+ */
+export function rotate270(v, target) {
+  if (!target) target = v;
+  target[0] = v[1];
+  target[1] = -v[0];
+  return target;
+}
 
+/**
+ * Find angle (in radians) between vector and [1, 0].
+ * @param {Number[]} v Target vector
+ * @return {Number} Angle in radians
+ */
+export function atan2(v) {
+  return Math.atan2(v[1], v[0]);
+}
 
+/**
+ * Calculates the signed angle between two vectors.
+ *
+ * @param {Number[]} a First vector
+ * @param {Number[]} b Second vector
+ * @returns {Number} Signed angle between vectors
+ */
+export function signedAngle(a, b) {
+  let phi = Math.atan2(b.y, b.x) - Math.atan2(a.y, a.x);
+  if (phi > Math.PI) {
+    phi -= 2 * Math.PI;
+  } else if (phi &lt;= -Math.PI) {
+    phi += 2 * Math.PI;
+  }
+  return phi;
+}
 
+/**
+ * Rotates a vector, v1, towards a second vector, v2, based on a factor, n.
+ * An n-value of 0.5, will return a vector with rotation in between
+ * v1 and v2.
+ *
+ * @example lerpRot([1, 0], [-1, 0]) // [0, 1]
+ *
+ * @param {Number[]} a Vector to interpolate from
+ * @param {Number[]} b Vector to interpolate to
+ * @param {Number} n Value between 0 - 1 used for interpolation
+ * @param {Number[]} [target=a] Target for storing the results (Default: a)
+ * @returns {Number[]} Interpolated vector
+ */
+export function lerpRot(a, b, n, target) {
+  const phi = signedAngle(a, b); // Signed angle
+  return rotate(a, n * phi, target);
+}
 
-
-
-
-
-    
-
-
-
-    <section class="readme">
-        <article><h1>Videx Vector2</h1>
-<p>Vector2 class library written in javascript.</p>
-<ul>
-<li><a href="https://github.com/equinor/videx-vector2">GitHub Repository</a></li>
-<li><a href="https://equinor.github.io/videx-vector2">Documentation</a></li>
-</ul>
-<h2>Installation</h2>
-<pre class="prettyprint source lang-js"><code>npm install --save @equinor/videx-vector2
+/**
+ * Find the cross product between two 2d vectors.
+ * @param {Number[]} a Left operand
+ * @param {Number[]} b Right operand
+ * @return {Number} Signed area of the parallellogram defined by v1 and v2
+ */
+export function cross(a, b) {
+  return (a[0] * b[1]) - (a[1] * b[0]);
+}
 </code></pre>
-<h2>Usage</h2>
-<pre class="prettyprint source lang-js"><code>// ES6
-import Vector2 from '@equinor/videx-vector2';
-
-// ObservableHQ
-Vector2 = require('@equinor/videx-vector2@X.X.X');
-</code></pre>
-<p>Where X.X.X is desired version number.</p>
-<h2>Available functions</h2>
-<table style="width:auto;">
-  <tr>
-    <td><a href="https://equinor.github.io/videx-vector2/global.html#a">a</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/global.html#b">b</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/global.html#c">c</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/global.html#d">d</a></td>
-  </tr>
-</table>
-<br/>
-<p><img src="images/equinor-logo.png" alt="Equinor Logo"></p></article>
+        </article>
     </section>
-
-
 
 
 

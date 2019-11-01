@@ -17,6 +17,8 @@
     "rules": {
       "no-continue": "off",
       "no-plusplus": "off",
-      "no-param-reassign": "off"
+      "no-param-reassign": "off",
+      "prefer-destructuring": "off",
+      "no-mixed-operators": "off"
     }
 }

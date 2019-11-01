@@ -14,10 +14,10 @@ npm install --save @equinor/videx-vector2
 
 ```js
 // ES6
-import { Vector2 } from '@equinor/videx-vector2';
+import Vector2 from '@equinor/videx-vector2';
 
 // ObservableHQ
-const Vector2 = require('@equinor/videx-vector2@X.X.X/dist/bundle.umd.js');
+Vector2 = require('@equinor/videx-vector2@X.X.X');
 ```
 Where X.X.X is desired version number.
 
@@ -25,10 +25,10 @@ Where X.X.X is desired version number.
 
 <table style="width:auto;">
   <tr>
-    <td><a href="https://equinor.github.io/videx-math/global.html#a">a</a></td>
-    <td><a href="https://equinor.github.io/videx-math/global.html#b">b</a></td>
-    <td><a href="https://equinor.github.io/videx-math/global.html#c">c</a></td>
-    <td><a href="https://equinor.github.io/videx-math/global.html#d">d</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/global.html#a">a</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/global.html#b">b</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/global.html#c">c</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/global.html#d">d</a></td>
   </tr>
 </table>
 
