@@ -1,5 +1,6 @@
 /**
  * Rotate vector by a given amount of radians.
+ * @private
  * @param {Number[]} v Vector to rotate
  * @param {Number} rad Angle in radians
  * @param {Number[]} [target=v] Target for storing the results (Default: v)
@@ -16,6 +17,7 @@ export function rotate(v, rad, target) {
 
 /**
  * Rotate vector by 90 degrees. (Counter-clockwise)
+ * @private
  * @param {Number[]} v Vector to rotate
  * @param {Number[]} [target=v] Target for storing the results (Default: v)
  * @return {Number} Rotated vector
@@ -29,6 +31,7 @@ export function rotate90(v, target) {
 
 /**
  * Flip/Rotate vector by 180 degrees.
+ * @private
  * @param {Number[]} v Vector to rotate
  * @param {Number[]} [target=v] Target for storing the results (Default: v)
  * @return {Number} Rotated vector
@@ -42,6 +45,7 @@ export function rotate180(v, target) {
 
 /**
  * Rotate vector by 270 degrees. (Counter-clockwise)
+ * @private
  * @param {Number[]} v Vector to rotate
  * @param {Number[]} [target=v] Target for storing the results (Default: v)
  * @return {Number} Rotated vector
@@ -55,6 +59,7 @@ export function rotate270(v, target) {
 
 /**
  * Find angle (in radians) between vector and [1, 0].
+ * @private
  * @param {Number[]} v Target vector
  * @return {Number} Angle in radians
  */
@@ -64,7 +69,7 @@ export function atan2(v) {
 
 /**
  * Calculates the signed angle between two vectors.
- *
+ * @private
  * @param {Number[]} a First vector
  * @param {Number[]} b Second vector
  * @returns {Number} Signed angle between vectors
@@ -83,9 +88,7 @@ export function signedAngle(a, b) {
  * Rotates a vector, v1, towards a second vector, v2, based on a factor, n.
  * An n-value of 0.5, will return a vector with rotation in between
  * v1 and v2.
- *
- * @example lerpRot([1, 0], [-1, 0]) // [0, 1]
- *
+ * @private
  * @param {Number[]} a Vector to interpolate from
  * @param {Number[]} b Vector to interpolate to
  * @param {Number} n Value between 0 - 1 used for interpolation
@@ -99,6 +102,7 @@ export function lerpRot(a, b, n, target) {
 
 /**
  * Find the cross product between two 2d vectors.
+ * @private
  * @param {Number[]} a Left operand
  * @param {Number[]} b Right operand
  * @return {Number} Signed area of the parallellogram defined by v1 and v2

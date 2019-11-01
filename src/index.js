@@ -22,18 +22,25 @@ import {
   cross,
 } from './functions';
 
+/**
+ * Vector2 class
+ * @class
+ * @alias Vector2
+ */
 export default class Vector2 extends Array {
   /**
-   * @param {Number} val Numeric value
-   * @returns {Number} X-component of vector
+   * X-component of vector.
+   * @memberof Vector2#
+   * @type {Number}
    */
   get x() { return this[0]; }
 
   set x(val) { this[0] = val; }
 
   /**
-   * @param {Number} val Numeric value
-   * @returns {Number} Y-component of vector
+   * Y-component of vector.
+   * @memberof Vector2#
+   * @type {Number}
    */
   get y() { return this[1]; }
 
@@ -41,6 +48,7 @@ export default class Vector2 extends Array {
 
   /**
    * Set both components of vector.
+   * @memberof Vector2#
    * @param {Number} x X-component of vector
    * @param {Number} y Y-component of vector
    */
@@ -51,6 +59,7 @@ export default class Vector2 extends Array {
 
   /**
    * Add values of given vector to target vector.
+   * @memberof Vector2#
    * @param {Vector2} b Vector to add
    * @returns {Vector2} Resulting vector
    */
@@ -62,9 +71,11 @@ export default class Vector2 extends Array {
    * a + b
    *
    * Add two values together.
+   * @memberof Vector2
    * @param {Vector2} a Left operand
    * @param {Vector2} b Right operand
    * @returns {Vector2} Resulting vector
+   * @static
    */
   static add(a, b) {
     return baseAdd(a, b, new Vector2(2));
@@ -72,6 +83,7 @@ export default class Vector2 extends Array {
 
   /**
    * Subtract values of given vector from target vector.
+   * @memberof Vector2#
    * @param {Vector2} b Vector to subtract
    * @returns {Vector2} Resulting vector
    */
@@ -83,6 +95,7 @@ export default class Vector2 extends Array {
    * a - b
    *
    * Subtract second vector from first vector.
+   * @memberof Vector2
    * @param {Vector2} a First vector
    * @param {Vector2} b Second vector
    * @returns {Vector2} Resulting vector
@@ -95,6 +108,7 @@ export default class Vector2 extends Array {
    * v / n
    *
    * Divide vector by a numeric value.
+   * @memberof Vector2
    * @param {Vector2} v Vector to divide
    * @param {Number} n Numeric value
    * @returns {Vector2} Resulting vector
@@ -107,6 +121,7 @@ export default class Vector2 extends Array {
    * v * n
    *
    * Multiply vector by a numeric value.
+   * @memberof Vector2
    * @param {Vector2} v Vector to multiply
    * @param {Number} n Numeric value
    * @returns {Vector2} Resulting vector
@@ -117,6 +132,7 @@ export default class Vector2 extends Array {
 
   /**
    * Scale vector by a numeric value.
+   * @memberof Vector2#
    * @param {Number} n Numeric value
    * @returns {Vector2} Resulting vector
    */
@@ -126,6 +142,7 @@ export default class Vector2 extends Array {
 
   /**
    * Rescale the vector to given length.
+   * @memberof Vector2#
    * @param {Number} n Numeric value
    * @returns {Vector2} Resulting vector
    */
@@ -137,6 +154,7 @@ export default class Vector2 extends Array {
   /**
    * Ensures that the magnitude of the vector does not
    * exceed a given length.
+   * @memberof Vector2#
    * @param {Number} n Numeric value
    * @returns {Vector2} Resulting vector
    */
@@ -149,6 +167,7 @@ export default class Vector2 extends Array {
   /**
    * Rotate the vector by specified amount of radians. Positive
    * rotation is counter-clockwise.
+   * @memberof Vector2#
    * @param {Number} rad Radians to rotate
    * @returns {Vector2} Resulting vector
    */
@@ -159,6 +178,7 @@ export default class Vector2 extends Array {
   /**
    * Rotate the vector by specified amount of degrees. Positive
    * rotation is counter-clockwise.
+   * @memberof Vector2#
    * @param {Number} rad Degrees to rotate
    * @returns {Vector2} Resulting vector
    */
@@ -169,6 +189,7 @@ export default class Vector2 extends Array {
   /**
    * Rotate the vector counter-clockwise by an amount of 90 degrees. Resulting
    * vector is perpendicular to the original.
+   * @memberof Vector2#
    * @returns {Vector2} Resulting vector
    */
   rotate90() {
@@ -178,6 +199,7 @@ export default class Vector2 extends Array {
   /**
    * Rotate the vector counter-clockwise by an amount of 180 degrees. Resulting
    * vector is opposite to the original.
+   * @memberof Vector2#
    * @returns {Vector2} Resulting vector
    */
   rotate180() {
@@ -187,6 +209,7 @@ export default class Vector2 extends Array {
   /**
    * Rotate the vector counter-clockwise by an amount of 270 degrees. Resulting
    * vector is perpendicular to the original.
+   * @memberof Vector2#
    * @returns {Vector2} Resulting vector
    */
   rotate270() {
@@ -195,6 +218,7 @@ export default class Vector2 extends Array {
 
   /**
    * [Mutation] Normalizes the vector.
+   * @memberof Vector2#
    * @returns {Vector2} Reference to vector
    */
   normalize() {
@@ -203,6 +227,7 @@ export default class Vector2 extends Array {
 
   /**
    * Get normalized version of vector.
+   * @memberof Vector2#
    * @returns {Vector2} Resulting vector
    */
   normalized() {
@@ -211,6 +236,7 @@ export default class Vector2 extends Array {
 
   /**
    * Get distance between two positions.
+   * @memberof Vector2
    * @param {Vector2} a First position
    * @param {Vector2} b Second position
    * @returns Distance between positions
@@ -221,6 +247,7 @@ export default class Vector2 extends Array {
 
   /**
    * Get dot product between two vectors.
+   * @memberof Vector2
    * @param {Vector2} a First vector
    * @param {Vector2} b Second vector
    * @return {Number} Dot product
@@ -231,6 +258,7 @@ export default class Vector2 extends Array {
 
   /**
    * Get cross product between two vectors.
+   * @memberof Vector2
    * @param {Vector2} a First vector
    * @param {Vector2} b Second vector
    * @return {Number} Cross product
@@ -241,6 +269,7 @@ export default class Vector2 extends Array {
 
   /**
    * Get angle (in radians) between vector and [1, 0].
+   * @memberof Vector2
    * @param {Vector2} v Target vector
    * @return {Number} Angle in radians
    */
@@ -250,6 +279,7 @@ export default class Vector2 extends Array {
 
   /**
    * Get angle (in degrees) between vector and [1, 0].
+   * @memberof Vector2
    * @param {Vector2} v Target vector
    * @return {Number} Angle in degrees
    */
@@ -259,6 +289,7 @@ export default class Vector2 extends Array {
 
   /**
    * Get angle (in radians) between two vectors.
+   * @memberof Vector2
    * @param {Vector2} a First vector
    * @param {Vector2} b Second vector
    * @returns {Number} Angle in radians
@@ -269,6 +300,7 @@ export default class Vector2 extends Array {
 
   /**
    * Get angle (in degrees) between two vectors.
+   * @memberof Vector2
    * @param {Vector2} a First vector
    * @param {Vector2} b Second vector
    * @returns {Number} Angle in degrees
@@ -279,6 +311,7 @@ export default class Vector2 extends Array {
 
   /**
    * Get signed angle (in radians) between two vectors.
+   * @memberof Vector2
    * @param {Vector2} a First vector
    * @param {Vector2} b Second vector
    * @returns {Number} Signed angle in radians
@@ -289,6 +322,7 @@ export default class Vector2 extends Array {
 
   /**
    * Get signed angle (in degrees) between two vectors.
+   * @memberof Vector2
    * @param {Vector2} a First vector
    * @param {Vector2} b Second vector
    * @returns {Number} Signed angle in degrees
@@ -299,6 +333,7 @@ export default class Vector2 extends Array {
 
   /**
    * Interpolate between two positions with given value n.
+   * @memberof Vector2
    * @param {Vector2} a Position to interpolate from
    * @param {Vector2} b Position to interpolate to
    * @param {Number} t Value between 0 - 1 used for interpolation
@@ -310,6 +345,7 @@ export default class Vector2 extends Array {
 
   /**
    * Rotates a vector, v1, towards a second vector, v2, based on a factor, n.
+   * @memberof Vector2
    * @param {Vector2} a Vector to interpolate from
    * @param {Vector2} b Vector to interpolate to
    * @param {Number} t Value between 0 - 1 used for interpolation
@@ -320,8 +356,9 @@ export default class Vector2 extends Array {
   }
 
   /**
-   * @param {Number} val Numeric value
-   * @returns {Number} Magnitude of the vector
+   * Magnitude of vector.
+   * @memberof Vector2#
+   * @type {Number}
    */
   get magnitude() {
     return baseMagnitude(this);
@@ -333,42 +370,58 @@ export default class Vector2 extends Array {
   }
 
   /**
-   * @returns Vector2 with values: [0, 0]
+   * Vector2 with values: [0, 0]
+   * @memberof Vector2
+   * @type {Vector2}
    */
   static get zero() { return new Vector2(0, 0); }
 
   /**
-   * @returns Vector2 with values: [1, 1]
+   * Vector2 with values: [1, 1]
+   * @memberof Vector2
+   * @type {Vector2}
    */
   static get one() { return new Vector2(1, 1); }
 
   /**
-   * @returns Vector2 with values: [∞, ∞]
+   * Vector2 with values: [∞, ∞]
+   * @memberof Vector2
+   * @type {Vector2}
    */
   static get positiveInfinity() { return new Vector2(Infinity, Infinity); }
 
   /**
-   * @returns Vector2 with values: [-∞, -∞]
+   * Vector2 with values: [-∞, -∞]
+   * @memberof Vector2
+   * @type {Vector2}
    */
   static get negativeInfinity() { return new Vector2(-Infinity, -Infinity); }
 
   /**
-   * @returns Vector2 with values: [0, 1]
+   * Vector2 with values: [0, 1]
+   * @memberof Vector2
+   * @type {Vector2}
    */
   static get up() { return new Vector2(0, 1); }
 
   /**
-   * @returns Vector2 with values: [0, -1]
+   * Vector2 with values: [0, -1]
+   * @memberof Vector2
+   * @type {Vector2}
    */
   static get down() { return new Vector2(0, -1); }
 
   /**
-   * @returns Vector2 with values: [1, 0]
+   * Vector2 with values: [1, 0]
+   * @memberof Vector2
+   * @type {Vector2}
    */
   static get right() { return new Vector2(1, 0); }
 
   /**
-   * @returns Vector2 with values: [-1, 0]
+   * Vector2 with values: [-1, 0]
+   * @memberof Vector2
+   * @type {Vector2}
    */
   static get left() { return new Vector2(-1, 0); }
 }
