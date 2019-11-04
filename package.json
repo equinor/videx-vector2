@@ -1,6 +1,6 @@
 {
   "name": "@equinor/videx-vector2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vector2 class library written in javascript.",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
