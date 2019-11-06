@@ -1,60 +1,71 @@
+import Vector2 from './index';
+
 /**
  * Rotate vector by a given amount of radians.
  * @private
- * @param {Number[]} v Vector to rotate
- * @param {Number} rad Angle in radians
- * @param {Number[]} [target=v] Target for storing the results (Default: v)
- * @return {Number} Rotated vector
+ * @param v Vector to rotate
+ * @param rad Angle in radians
+ * @param target Target for storing the results
+ * @return Rotated vector
  */
-export function rotate(v, rad, target) {
-  if (!target) target = v;
+export function rotate(v: Vector2, rad: number, target: Vector2): Vector2 {
   const cr = Math.cos(rad);
   const sr = Math.sin(rad);
-  target[0] = cr * v[0] - sr * v[1];
-  target[1] = sr * v[0] + cr * v[1];
+  target.x = cr * v.x - sr * v.y;
+  target.y = sr * v.x + cr * v.y;
   return target;
 }
 
 /**
  * Rotate vector by 90 degrees. (Counter-clockwise)
  * @private
- * @param {Number[]} v Vector to rotate
- * @param {Number[]} [target=v] Target for storing the results (Default: v)
- * @return {Number} Rotated vector
+ * @param v Vector to rotate
+ * @param target Target for storing the results
+ * @return Rotated vector
  */
-export function rotate90(v, target) {
-  if (!target) target = v;
-  target[0] = -v[1];
-  target[1] = v[0];
+export function rotate90(v: Vector2, target: Vector2): Vector2 {
+  const x = v.x;
+  target.x = -v.y;
+  target.y = x;
   return target;
 }
 
 /**
  * Flip/Rotate vector by 180 degrees.
  * @private
- * @param {Number[]} v Vector to rotate
- * @param {Number[]} [target=v] Target for storing the results (Default: v)
- * @return {Number} Rotated vector
+ * @param v Vector to rotate
+ * @param target Target for storing the results
+ * @return Flipped/rotated vector
  */
-export function rotate180(v, target) {
-  if (!target) target = v;
-  target[0] = -v[0];
-  target[1] = -v[1];
+export function rotate180(v: Vector2, target: Vector2): Vector2 {
+  target.x = -v.x;
+  target.y = -v.y;
   return target;
 }
 
 /**
  * Rotate vector by 270 degrees. (Counter-clockwise)
  * @private
- * @param {Number[]} v Vector to rotate
- * @param {Number[]} [target=v] Target for storing the results (Default: v)
- * @return {Number} Rotated vector
+ * @param v Vector to rotate
+ * @param target Target for storing the results
+ * @return Rotated vector
  */
-export function rotate270(v, target) {
-  if (!target) target = v;
-  target[0] = v[1];
-  target[1] = -v[0];
+export function rotate270(v: Vector2, target: Vector2): Vector2 {
+  const x = v.x;
+  target.x = v.y;
+  target.y = -x;
   return target;
+}
+
+/**
+ * Find the cross product between two 2d vectors.
+ * @private
+ * @param a Left operand
+ * @param b Right operand
+ * @return Signed area of the parallellogram defined by v1 and v2
+ */
+export function cross(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+  return (a[0] * b[1]) - (a[1] * b[0]);
 }
 
 /**
@@ -63,9 +74,11 @@ export function rotate270(v, target) {
  * @param {Number[]} v Target vector
  * @return {Number} Angle in radians
  */
+/*
 export function angleRight(v) {
   return Math.atan2(v[1], v[0]);
 }
+ */
 
 /**
  * Calculates the signed angle between two vectors.
@@ -74,6 +87,7 @@ export function angleRight(v) {
  * @param {Number[]} b Second vector
  * @returns {Number} Signed angle between vectors
  */
+/*
 export function signedAngle(a, b) {
   let phi = Math.atan2(b.y, b.x) - Math.atan2(a.y, a.x);
   if (phi > Math.PI) {
@@ -83,6 +97,7 @@ export function signedAngle(a, b) {
   }
   return phi;
 }
+ */
 
 /**
  * Rotates a vector, v1, towards a second vector, v2, based on a factor, n.
@@ -95,18 +110,9 @@ export function signedAngle(a, b) {
  * @param {Number[]} [target=a] Target for storing the results (Default: a)
  * @returns {Number[]} Interpolated vector
  */
+/*
 export function lerpRot(a, b, n, target) {
   const phi = signedAngle(a, b); // Signed angle
   return rotate(a, n * phi, target);
 }
-
-/**
- * Find the cross product between two 2d vectors.
- * @private
- * @param {Number[]} a Left operand
- * @param {Number[]} b Right operand
- * @return {Number} Signed area of the parallellogram defined by v1 and v2
- */
-export function cross(a, b) {
-  return (a[0] * b[1]) - (a[1] * b[0]);
-}
+*/

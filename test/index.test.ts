@@ -43,13 +43,11 @@ describe('Vector2.js', () => {
 
   it('add', () => {
     const v = new Vector2(2, 3);
-    console.log(v.add([1, 2]));
     expectVector2ToBe(v.add([1, 2]), [3, 5]);
     expectVector2ToBe(Vector2.add([2, 3], [1, 2]), [3, 5]);
 
-    const m = Vector2.right
-      .mutable
-      .add([2, 3]);
+    const m = Vector2.right.mutable;
+    m.add([2, 3]);
     expectVector2ToBe(m, [3, 3]);
   });
 
@@ -58,14 +56,11 @@ describe('Vector2.js', () => {
     expectVector2ToBe(v.sub([1, 2]), [1, 1]);
     expectVector2ToBe(Vector2.sub([2, 3], [1, 2]), [1, 1]);
 
-    const m = new Vector2(2, 3)
-      .mutable
-      .sub([1, 2]);
+    const m = new Vector2(2, 3).mutable;
+    m.sub([1, 2]);
     expectVector2ToBe(m, [1, 1]);
   });
 
-
-  /*
 
   it('divide', () => {
     expectVector2ToBe(Vector2.divide([2, 6], 2), [1, 3]);
@@ -75,13 +70,13 @@ describe('Vector2.js', () => {
     expectVector2ToBe(Vector2.multiply([2, 3], 2), [4, 6]);
   });
 
+
   it('scale', () => {
     const v = new Vector2(2, 3);
     expectVector2ToBe(v.scale(2), [4, 6]);
 
-    const m = new Vector2(2, 3)
-      .mutable
-      .scale(2);
+    const m = new Vector2(2, 3).mutable;
+    m.scale(2);
     expectVector2ToBe(m, [4, 6]);
   });
 
@@ -89,9 +84,8 @@ describe('Vector2.js', () => {
     const v = new Vector2(6, 0);
     expectVector2ToBe(v.rescale(2), [2, 0]);
 
-    const m = new Vector2(6, 0)
-      .mutable
-      .rescale(2);
+    const m = new Vector2(6, 0).mutable;
+    m.rescale(2);
     expectVector2ToBe(m, [2, 0]);
   });
 
@@ -114,6 +108,10 @@ describe('Vector2.js', () => {
   it('rotate90', () => {
     expectVector2ToBeCloseTo(Vector2.right.rotate90(), Vector2.up);
     expectVector2ToBeCloseTo(Vector2.up.rotate90(), Vector2.left);
+
+    const m = Vector2.right.mutable;
+    m.rotate90();
+    expectVector2ToBeCloseTo(m, Vector2.up);
   });
 
   it('rotate180', () => {
@@ -124,6 +122,10 @@ describe('Vector2.js', () => {
   it('rotate270', () => {
     expectVector2ToBeCloseTo(Vector2.right.rotate270(), Vector2.down);
     expectVector2ToBeCloseTo(Vector2.down.rotate270(), Vector2.left);
+
+    const m = Vector2.right.mutable;
+    m.rotate270();
+    expectVector2ToBeCloseTo(m, Vector2.down);
   });
 
   it('normalize', () => {
@@ -151,6 +153,7 @@ describe('Vector2.js', () => {
     expect(Vector2.cross([2, 3], [4, 5])).toBeCloseTo(-2);
   });
 
+  /*
   it('angleRight', () => {
     expect(Vector2.angleRight(Vector2.up)).toBeCloseTo(Math.PI / 2);
     expect(Vector2.angleRight(Vector2.one)).toBeCloseTo(Math.PI / 4);
@@ -207,6 +210,15 @@ describe('Vector2.js', () => {
     v.magnitude = 2;
     expectVector2ToBeCloseTo(v, [2, 0]);
   });
+  */
+
+  it('clone', () => {
+    const a = new Vector2(2, 3);
+    const b = a.clone();
+    a.set(0, 0);
+    expectVector2ToBe(a, [0, 0]);
+    expectVector2ToBe(b, [2, 3]);
+  });
 
   it('presets', () => {
     expectVector2ToBe(Vector2.zero, [0, 0]);
@@ -219,5 +231,4 @@ describe('Vector2.js', () => {
     expectVector2ToBe(Vector2.left, [-1, 0]);
     expectVector2ToBe(Vector2.down, [0, -1]);
   });
-  */
 });
