@@ -83,10 +83,10 @@ Where X.X.X is desired version number.
     <td><a href="https://equinor.github.io/videx-vector2/Vector2.html#.add">add</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/Vector2.html#.angle">angle</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/Vector2.html#.angleDeg">angleDeg</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/Vector2.html#.atan2">atan2</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/Vector2.html#.angleRight">angleRight</a></td>
   </tr>
   <tr>
-    <td><a href="https://equinor.github.io/videx-vector2/Vector2.html#.atan2Deg">atan2Deg</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/Vector2.html#.angleRightDeg">angleRightDeg</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/Vector2.html#.cross">cross</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/Vector2.html#.distance">distance</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/Vector2.html#.divide">divide</a></td>

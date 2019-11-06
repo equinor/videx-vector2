@@ -1,48 +1,32 @@
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
+import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 
-export default [
-  { // CJS and ESM
-    input: 'src/index.js',
-    output: [
-      {
-        file: 'dist/bundle.cjs.js',
-        format: 'cjs',
-      },
-      {
-        file: 'dist/bundle.esm.js',
-        format: 'esm',
-      },
-    ],
-    plugins: [
-      resolve(),
-      babel({
-        exclude: 'node_modules/**',
-      }),
-      terser({
-        output: {
-          comments: 'all',
-        },
-        mangle: false,
-      }),
-    ],
-  },
-  { // UMD
-    input: 'src/index.js',
-    output: {
-      name: 'videxMath',
-      file: 'dist/bundle.umd.js',
-      format: 'umd',
+import pkg from './package.json';
+
+export default {
+  input: 'src/index.ts',
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
     },
-    plugins: [
-      resolve(),
-      babel({
-        exclude: 'node_modules/**',
-      }),
-      terser({
-        mangle: false,
-      }),
-    ],
-  },
-];
+    {
+      file: pkg.module,
+      format: 'es',
+    },
+  ],
+  external: [
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
+  ],
+
+  plugins: [
+    typescript({
+      // eslint-disable-next-line global-require
+      typescript: require('typescript'),
+    }),
+    terser({
+      mangle: false,
+    }),
+  ],
+};

@@ -16,18 +16,24 @@ import {
   rotate90,
   rotate180,
   rotate270,
-  atan2,
+  angleRight,
   signedAngle,
   lerpRot,
   cross,
 } from './functions';
 
 /**
- * Vector2 class
+ * Vector2 class - CJS entry
  * @class
  * @alias Vector2
  */
 export default class Vector2 extends Array {
+  constructor(...input) {
+    if (input.length >= 2) super(input[0], input[1]);
+    else super(0, 0);
+    this.mutate = false;
+  }
+
   /**
    * X-component of vector.
    * @memberof Vector2#
@@ -47,6 +53,24 @@ export default class Vector2 extends Array {
   set y(val) { this[1] = val; }
 
   /**
+   * Set vector to mutable.
+   * @memberof Vector2#
+   */
+  get mutable() {
+    this.mutate = true;
+    return this;
+  }
+
+  /**
+   * Set vector to immutable.
+   * @memberof Vector2#
+   */
+  get immutable() {
+    this.mutate = false;
+    return this;
+  }
+
+  /**
    * Set both components of vector.
    * @memberof Vector2#
    * @param {Number} x X-component of vector
@@ -55,6 +79,7 @@ export default class Vector2 extends Array {
   set(x, y) {
     this[0] = x;
     this[1] = y;
+    return this;
   }
 
   /**
@@ -64,7 +89,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   add(b) {
-    return baseAdd(this, b, new Vector2(2));
+    return baseAdd(this, b, this.mutate ? this : new Vector2());
   }
 
   /**
@@ -78,7 +103,7 @@ export default class Vector2 extends Array {
    * @static
    */
   static add(a, b) {
-    return baseAdd(a, b, new Vector2(2));
+    return baseAdd(a, b, new Vector2());
   }
 
   /**
@@ -88,7 +113,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   sub(b) {
-    return baseSub(this, b, new Vector2(2));
+    return baseSub(this, b, this.mutate ? this : new Vector2());
   }
 
   /**
@@ -101,7 +126,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   static sub(a, b) {
-    return baseSub(a, b, new Vector2(2));
+    return baseSub(a, b, new Vector2());
   }
 
   /**
@@ -114,7 +139,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   static divide(v, n) {
-    return baseScale(v, 1 / n, new Vector2(2));
+    return baseScale(v, 1 / n, new Vector2());
   }
 
   /**
@@ -127,7 +152,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   static multiply(v, n) {
-    return baseScale(v, n, new Vector2(2));
+    return baseScale(v, n, new Vector2());
   }
 
   /**
@@ -137,7 +162,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   scale(n) {
-    return baseScale(this, n, new Vector2(2));
+    return baseScale(this, n, this.mutate ? this : new Vector2());
   }
 
   /**
@@ -148,7 +173,7 @@ export default class Vector2 extends Array {
    */
   rescale(n) {
     const len = baseMagnitude(this);
-    return baseScale(this, n / len, new Vector2(2));
+    return baseScale(this, n / len, this.mutate ? this : new Vector2());
   }
 
   /**
@@ -160,8 +185,8 @@ export default class Vector2 extends Array {
    */
   clampMagnitude(n) {
     const len = baseMagnitude(this);
-    if (len > n) return baseScale(this, n / len, new Vector2(2));
-    return new Vector2(this[0], this[1]);
+    if (len > n) return baseScale(this, n / len, this.mutate ? this : new Vector2());
+    return this.mutate ? this : new Vector2(this[0], this[1]);
   }
 
   /**
@@ -172,7 +197,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   rotate(rad) {
-    return rotate(this, rad, new Vector2(2));
+    return rotate(this, rad, this.mutate ? this : new Vector2());
   }
 
   /**
@@ -183,7 +208,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   rotateDeg(deg) {
-    return rotate(this, deg * DEG2RAD, new Vector2(2));
+    return rotate(this, deg * DEG2RAD, this.mutate ? this : new Vector2());
   }
 
   /**
@@ -193,7 +218,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   rotate90() {
-    return rotate90(this, new Vector2(2));
+    return rotate90(this, this.mutate ? this : new Vector2());
   }
 
   /**
@@ -203,7 +228,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   rotate180() {
-    return rotate180(this, new Vector2(2));
+    return rotate180(this, this.mutate ? this : new Vector2());
   }
 
   /**
@@ -213,7 +238,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   rotate270() {
-    return rotate270(this, new Vector2(2));
+    return rotate270(this, this.mutate ? this : new Vector2());
   }
 
   /**
@@ -231,7 +256,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Resulting vector
    */
   normalized() {
-    return baseNormalize(this, new Vector2(2)); // Don't mutate
+    return baseNormalize(this, this.mutate ? this : new Vector2()); // Don't mutate
   }
 
   /**
@@ -273,8 +298,8 @@ export default class Vector2 extends Array {
    * @param {Vector2} v Target vector
    * @return {Number} Angle in radians
    */
-  static atan2(v) {
-    return atan2(v);
+  static angleRight(v) {
+    return angleRight(v);
   }
 
   /**
@@ -283,8 +308,8 @@ export default class Vector2 extends Array {
    * @param {Vector2} v Target vector
    * @return {Number} Angle in degrees
    */
-  static atan2Deg(v) {
-    return atan2(v) * RAD2DEG;
+  static angleRightDeg(v) {
+    return angleRight(v) * RAD2DEG;
   }
 
   /**
@@ -340,7 +365,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Interpolated position
    */
   static lerp(a, b, t) {
-    return mix(a, b, t, new Vector2(2));
+    return mix(a, b, t, this.mutate ? this : new Vector2());
   }
 
   /**
@@ -352,7 +377,7 @@ export default class Vector2 extends Array {
    * @returns {Vector2} Interpolated vector
    */
   static lerpRot(a, b, t) {
-    return lerpRot(a, b, t, new Vector2(2));
+    return lerpRot(a, b, t, this.mutate ? this : new Vector2());
   }
 
   /**

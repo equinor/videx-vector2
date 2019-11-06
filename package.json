@@ -1,10 +1,14 @@
 {
   "name": "@equinor/videx-vector2",
-  "version": "1.0.3",
+  "version": "1.0.14",
   "description": "Vector2 class library written in javascript.",
-  "main": "dist/bundle.cjs.js",
-  "module": "dist/bundle.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "browser": "dist/bundle.umd.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "rollup -c",
@@ -32,9 +36,7 @@
   },
   "homepage": "https://github.com/equinor/videx-vector2#readme",
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-transform-modules-commonjs": "^7.6.0",
-    "@babel/preset-env": "^7.6.3",
+    "@types/jest": "^24.0.21",
     "copyfiles": "^2.1.1",
     "docdash": "^1.1.1",
     "eslint": "^6.6.0",
@@ -46,9 +48,23 @@
     "rollup": "^1.26.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.1.2"
+    "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-typescript2": "^0.24.3",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
   },
   "dependencies": {
     "@equinor/videx-linear-algebra": "^1.0.4"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "/test/.*",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
   }
 }

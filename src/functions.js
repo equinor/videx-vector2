@@ -58,12 +58,12 @@ export function rotate270(v, target) {
 }
 
 /**
- * Find angle (in radians) between vector and [1, 0].
+ * Find angle (in radians) between vector and right vector, [1, 0].
  * @private
  * @param {Number[]} v Target vector
  * @return {Number} Angle in radians
  */
-export function atan2(v) {
+export function angleRight(v) {
   return Math.atan2(v[1], v[0]);
 }
 
