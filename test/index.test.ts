@@ -153,7 +153,7 @@ describe('Vector2.js', () => {
     expect(Vector2.cross([2, 3], [4, 5])).toBeCloseTo(-2);
   });
 
-  /*
+
   it('angleRight', () => {
     expect(Vector2.angleRight(Vector2.up)).toBeCloseTo(Math.PI / 2);
     expect(Vector2.angleRight(Vector2.one)).toBeCloseTo(Math.PI / 4);
@@ -210,7 +210,6 @@ describe('Vector2.js', () => {
     v.magnitude = 2;
     expectVector2ToBeCloseTo(v, [2, 0]);
   });
-  */
 
   it('clone', () => {
     const a = new Vector2(2, 3);

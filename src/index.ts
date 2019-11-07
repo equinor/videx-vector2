@@ -7,6 +7,7 @@ import {
   normalize as baseNormalize,
   dist,
   dot as baseDot,
+  mix,
 } from '@equinor/videx-linear-algebra';
 
 import { RAD2DEG, DEG2RAD } from './const';
@@ -17,6 +18,9 @@ import {
   rotate180,
   rotate270,
   cross,
+  angleRight,
+  signedAngle,
+  lerpRot,
 } from './functions';
 
 /**
@@ -79,6 +83,17 @@ export default class Vector2 {
   }
 
   /**
+   * Magnitude of vector.
+   */
+  get magnitude() {
+    return baseMagnitude(this);
+  }
+  set magnitude(val) {
+    const len = baseMagnitude(this);
+    baseScale(this, val / len, this);
+  }
+
+  /**
    * Set mutable and return reference to self.
    * @returns Reference to self
    */
@@ -98,7 +113,6 @@ export default class Vector2 {
 
   /**
    * Set both components of vector.
-   * @memberof Vector2#
    * @param x New x component of vector
    * @param y New y component of vector
    * @returns Reference to self
@@ -111,7 +125,6 @@ export default class Vector2 {
 
   /**
    * Add values of given vector to target vector.
-   * @memberof Vector2#
    * @param b Vector to add
    * @returns Resulting vector
    */
@@ -123,7 +136,6 @@ export default class Vector2 {
    * a + b
    *
    * Add two values together.
-   * @memberof Vector2
    * @param a Left operand
    * @param b Right operand
    * @returns Resulting vector
@@ -135,7 +147,6 @@ export default class Vector2 {
 
   /**
    * Subtract values of given vector from target vector.
-   * @memberof Vector2#
    * @param b Vector to subtract
    * @returns Resulting vector
    */
@@ -147,7 +158,6 @@ export default class Vector2 {
    * a - b
    *
    * Subtract second vector from first vector.
-   * @memberof Vector2
    * @param a Left operand
    * @param b Right operand
    * @returns Resulting vector
@@ -160,7 +170,6 @@ export default class Vector2 {
    * v / n
    *
    * Divide vector by a numeric value.
-   * @memberof Vector2
    * @param v Vector to divide
    * @param n Numeric value
    * @returns Resulting vector
@@ -173,7 +182,6 @@ export default class Vector2 {
    * v * n
    *
    * Multiply vector by a numeric value.
-   * @memberof Vector2
    * @param v Vector to multiply
    * @param n Numeric value
    * @returns Resulting vector
@@ -184,7 +192,6 @@ export default class Vector2 {
 
   /**
    * Scale vector by a numeric value.
-   * @memberof Vector2#
    * @param n Numeric value
    * @returns Resulting vector
    */
@@ -194,7 +201,6 @@ export default class Vector2 {
 
   /**
    * Rescale the vector to given length.
-   * @memberof Vector2#
    * @param n Numeric value
    * @returns Resulting vector
    */
@@ -206,7 +212,6 @@ export default class Vector2 {
   /**
    * Ensures that the magnitude of the vector does not
    * exceed a given length.
-   * @memberof Vector2#
    * @param {Number} n Numeric value
    * @returns {Vector2} Resulting vector
    */
@@ -219,7 +224,6 @@ export default class Vector2 {
   /**
    * Rotate the vector by specified amount of radians. Positive
    * rotation is counter-clockwise.
-   * @memberof Vector2#
    * @param rad Radians to rotate
    * @returns Resulting vector
    */
@@ -230,7 +234,6 @@ export default class Vector2 {
   /**
    * Rotate the vector by specified amount of degrees. Positive
    * rotation is counter-clockwise.
-   * @memberof Vector2#
    * @param rad Degrees to rotate
    * @returns Resulting vector
    */
@@ -241,7 +244,6 @@ export default class Vector2 {
   /**
    * Rotate the vector counter-clockwise by an amount of 90 degrees. Resulting
    * vector is perpendicular to the original.
-   * @memberof Vector2#
    * @returns Resulting vector
    */
   rotate90(): Vector2 {
@@ -251,7 +253,6 @@ export default class Vector2 {
   /**
    * Rotate the vector counter-clockwise by an amount of 180 degrees. Resulting
    * vector is opposite of original.
-   * @memberof Vector2#
    * @returns Resulting vector
    */
   rotate180(): Vector2 {
@@ -261,7 +262,6 @@ export default class Vector2 {
   /**
    * Rotate the vector counter-clockwise by an amount of 270 degrees. Resulting
    * vector is perpendicular to the original.
-   * @memberof Vector2#
    * @returns Resulting vector
    */
   rotate270(): Vector2 {
@@ -270,7 +270,6 @@ export default class Vector2 {
 
   /**
    * [Mutation] Normalizes the vector.
-   * @memberof Vector2#
    * @returns Reference to vector
    */
   normalize(): Vector2 {
@@ -279,7 +278,6 @@ export default class Vector2 {
 
   /**
    * Get normalized version of vector.
-   * @memberof Vector2#
    * @returns Resulting vector
    */
   normalized(): Vector2 {
@@ -288,7 +286,6 @@ export default class Vector2 {
 
   /**
    * Get distance between two positions.
-   * @memberof Vector2
    * @param a First position
    * @param b Second position
    * @returns Distance between positions
@@ -299,7 +296,6 @@ export default class Vector2 {
 
   /**
    * Get dot product between two vectors.
-   * @memberof Vector2
    * @param a First vector
    * @param b Second vector
    * @return Dot product
@@ -310,13 +306,92 @@ export default class Vector2 {
 
   /**
    * Get cross product between two vectors.
-   * @memberof Vector2
    * @param a First vector
    * @param b Second vector
    * @return Cross product
    */
   static cross(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
     return cross(a, b);
+  }
+
+  /**
+   * Get angle (in radians) between vector and [1, 0].
+   * @param v Target vector
+   * @return Angle in radians
+   */
+  static angleRight(v: [number, number]|Vector2): number {
+    return angleRight(v);
+  }
+
+  /**
+   * Get angle (in degrees) between vector and [1, 0].
+   * @param v Target vector
+   * @return Angle in degrees
+   */
+  static angleRightDeg(v: [number, number]|Vector2): number {
+    return angleRight(v) * RAD2DEG;
+  }
+
+  /**
+   * Get angle (in radians) between two vectors.
+   * @param a First vector
+   * @param b Second vector
+   * @returns Angle in radians
+   */
+  static angle(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+    return Math.abs(signedAngle(a, b));
+  }
+
+  /**
+   * Get angle (in degrees) between two vectors.
+   * @param a First vector
+   * @param b Second vector
+   * @returns Angle in degrees
+   */
+  static angleDeg(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+    return Math.abs(signedAngle(a, b)) * RAD2DEG;
+  }
+
+  /**
+   * Get signed angle (in radians) between two vectors.
+   * @param a First vector
+   * @param b Second vector
+   * @returns Signed angle in radians
+   */
+  static signedAngle(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+    return signedAngle(a, b);
+  }
+
+  /**
+   * Get signed angle (in degrees) between two vectors.
+   * @param a First vector
+   * @param b Second vector
+   * @returns Signed angle in degrees
+   */
+  static signedAngleDeg(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+    return signedAngle(a, b) * RAD2DEG;
+  }
+
+  /**
+   * Interpolate between two positions with given value n.
+   * @param a Position to interpolate from
+   * @param b Position to interpolate to
+   * @param t Value between 0 - 1 used for interpolation
+   * @returns Interpolated position
+   */
+  static lerp(a: [number, number]|Vector2, b: [number, number]|Vector2, t: number): Vector2 {
+    return mix(a, b, t, Vector2.right);
+  }
+
+  /**
+   * Rotates a vector, v1, towards a second vector, v2, based on a factor, n.
+   * @param a Vector to interpolate from
+   * @param b Vector to interpolate to
+   * @param t Value between 0 - 1 used for interpolation
+   * @returns Interpolated vector
+   */
+  static lerpRot(a: [number, number]|Vector2, b: [number, number]|Vector2, t: number): Vector2 {
+    return lerpRot(a, b, t, Vector2.right);
   }
 
   /**
