@@ -18,7 +18,7 @@
     "test:watch": "jest --watchAll",
     "predocs": "rimraf docs",
     "docs": "typedoc --out docs src",
-    "postdocs": "copyfiles images/* docs"
+    "postdocs": "copyfiles images/* docs && copyfiles .nojekyll docs"
   },
   "repository": {
     "type": "git",
