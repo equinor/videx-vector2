@@ -32,17 +32,22 @@ export default class Vector2 {
   /**
    * X component of vector
    */
-  x: number;
+  0: number;
 
   /**
    * Y component of vector
    */
-  y: number;
+  1: number;
 
   /**
    * Does the vector mutate?
    */
-  mutate: boolean;
+  mutate: boolean = false;
+
+  /**
+   * Length variable to use vector as array.
+   */
+  length: number = 2;
 
   /**
    * Construct a new Vector2.
@@ -50,36 +55,28 @@ export default class Vector2 {
    * @param y Initial y component of vector
    */
   constructor(x: number, y: number) {
-    this.x = x;
-    this.y = y;
-    this.mutate = false;
+    this[0] = x;
+    this[1] = y;
   }
 
   /**
    * Alternative getter/setter for x component.
    */
-  get 0(): number {
-    return this.x;
+  get x(): number {
+    return this[0];
   }
-  set 0(value: number) {
-    this.x = value;
+  set x(value: number) {
+    this[0] = value;
   }
 
   /**
    * Alternative getter/setter for y component.
    */
-  get 1(): number {
-    return this.y;
+  get y(): number {
+    return this[1];
   }
-  set 1(value: number) {
-    this.y = value;
-  }
-
-  /**
-   * Length variable to function as array.
-   */
-  get length(): number {
-    return 2;
+  set y(value: number) {
+    this[1] = value;
   }
 
   /**
@@ -112,14 +109,14 @@ export default class Vector2 {
   }
 
   /**
-   * Set both components of vector.
+   * [Mutation] Set both components of vector.
    * @param x New x component of vector
    * @param y New y component of vector
    * @returns Reference to self
    */
   set(x: number, y: number): Vector2 {
-    this.x = x;
-    this.y = y;
+    this[0] = x;
+    this[1] = y;
     return this;
   }
 
@@ -401,6 +398,26 @@ export default class Vector2 {
    */
   clone(): Vector2 {
     return new Vector2(this.x, this.y);
+  }
+
+  /**
+   * [Mutation] Set both components of a vector from an array.
+   * @param array Array to get values from
+   * @returns Reference to self
+   */
+  setArray(array: [number, number]) : Vector2 {
+    this[0] = array[0];
+    this[1] = array[1];
+    return this;
+  }
+
+  /**
+   * Create a vector from an array.
+   * @param array Array to get values from
+   * @returns Reference to self
+   */
+  static fromArray(array: [number, number]) : Vector2 {
+    return new Vector2(array[0], array[1]);
   }
 
   /**

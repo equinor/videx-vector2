@@ -11,8 +11,8 @@ import Vector2 from './index';
 export function rotate(v: Vector2, rad: number, target: Vector2): Vector2 {
   const cr = Math.cos(rad);
   const sr = Math.sin(rad);
-  target.x = cr * v.x - sr * v.y;
-  target.y = sr * v.x + cr * v.y;
+  target.x = cr * v[0] - sr * v[1];
+  target.y = sr * v[0] + cr * v[1];
   return target;
 }
 
@@ -24,9 +24,9 @@ export function rotate(v: Vector2, rad: number, target: Vector2): Vector2 {
  * @return Rotated vector
  */
 export function rotate90(v: Vector2, target: Vector2): Vector2 {
-  const x = v.x;
-  target.x = -v.y;
-  target.y = x;
+  const x = v[0];
+  target[0] = -v[1];
+  target[1] = x;
   return target;
 }
 
@@ -38,8 +38,8 @@ export function rotate90(v: Vector2, target: Vector2): Vector2 {
  * @return Flipped/rotated vector
  */
 export function rotate180(v: Vector2, target: Vector2): Vector2 {
-  target.x = -v.x;
-  target.y = -v.y;
+  target[0] = -v[0];
+  target[1] = -v[1];
   return target;
 }
 
@@ -51,9 +51,9 @@ export function rotate180(v: Vector2, target: Vector2): Vector2 {
  * @return Rotated vector
  */
 export function rotate270(v: Vector2, target: Vector2): Vector2 {
-  const x = v.x;
-  target.x = v.y;
-  target.y = -x;
+  const x = v[0];
+  target[0] = v[1];
+  target[1] = -x;
   return target;
 }
 
