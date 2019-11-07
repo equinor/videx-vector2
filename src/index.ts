@@ -46,8 +46,9 @@ export default class Vector2 {
    * @param y Initial y component of vector
    */
   constructor(x: number, y: number) {
-      this.x = x;
-      this.y = y;
+    this.x = x;
+    this.y = y;
+    this.mutate = false;
   }
 
   /**
