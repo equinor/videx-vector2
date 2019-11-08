@@ -132,11 +132,15 @@ describe('Vector2.js', () => {
     const v = new Vector2(6, 0);
     v.normalize();
     expectVector2ToBeCloseTo(v, Vector2.right);
+
+    const u = Vector2.zero;
+    u.normalize();
+    expectVector2ToBe(u, Vector2.zero);
   });
 
   it('normalized', () => {
-    const v = new Vector2(6, 0);
-    expectVector2ToBeCloseTo(v.normalized(), Vector2.right);
+    expectVector2ToBeCloseTo(new Vector2(6, 0).normalized(), Vector2.right);
+    expectVector2ToBe(Vector2.zero.normalized(), Vector2.zero);
   });
 
   it('distance', () => {
