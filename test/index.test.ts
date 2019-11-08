@@ -17,6 +17,13 @@ describe('Vector2.js', () => {
     const a = new Vector2(1, 2);
     expectVector2ToBe(a, [1, 2]);
     expect(a.mutate).toBeFalsy();
+
+    const array = [1, 2];
+    const b = new Vector2(array);
+    expectVector2ToBe(b, [1, 2]);
+
+    const c = new Vector2(...array);
+    expectVector2ToBe(c, [1, 2]);
   });
 
 
@@ -39,12 +46,17 @@ describe('Vector2.js', () => {
     const v = new Vector2(2, 3);
     v.set(4, 5);
     expectVector2ToBe(v, [4, 5]);
+    v.set([5, 6]);
+    expectVector2ToBe(v, [5, 6]);
   });
 
   it('add', () => {
     const v = new Vector2(2, 3);
     expectVector2ToBe(v.add([1, 2]), [3, 5]);
     expectVector2ToBe(Vector2.add([2, 3], [1, 2]), [3, 5]);
+
+    const u = new Vector2(3, 4);
+    expectVector2ToBe(u.add(2, 4), [5, 8]);
 
     const m = Vector2.right.mutable;
     m.add([2, 3]);
@@ -55,6 +67,9 @@ describe('Vector2.js', () => {
     const v = new Vector2(2, 3);
     expectVector2ToBe(v.sub([1, 2]), [1, 1]);
     expectVector2ToBe(Vector2.sub([2, 3], [1, 2]), [1, 1]);
+
+    const u = new Vector2(3, 4);
+    expectVector2ToBe(u.sub(2, 4), [1, 0]);
 
     const m = new Vector2(2, 3).mutable;
     m.sub([1, 2]);
@@ -220,6 +235,27 @@ describe('Vector2.js', () => {
     const b = a.clone();
     a.set(0, 0);
     expectVector2ToBe(a, [0, 0]);
+    expectVector2ToBe(b, [2, 3]);
+  });
+
+  it('isZeroVector', () => {
+    const a = new Vector2(0, 0.0000001);
+    expect(a.isZeroVector()).toBeFalsy();
+    expect(a.isZeroVector(0.000001)).toBeTruthy();
+  });
+
+  it('toArray', () => {
+    const a = new Vector2(2, 3);
+    expect(Array.isArray(a)).toBeFalsy();
+    const b = a.toArray();
+    expect(Array.isArray(b)).toBeTruthy();
+    expectVector2ToBe(b, [2, 3]);
+  });
+
+  it('iterator', () => {
+    const a = new Vector2(2, 3);
+    expectVector2ToBe([...a], [2, 3]);
+    const b = new Vector2(...a);
     expectVector2ToBe(b, [2, 3]);
   });
 

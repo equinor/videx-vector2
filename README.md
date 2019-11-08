@@ -27,9 +27,10 @@ Where X.X.X is desired version number.
 
 <table style="width:auto;">
   <tr>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#0">[0]</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#1">[1]</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#length">length</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#mutate">mutate</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#x">x</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#y">y</a></td>
   </tr>
 </table>
 
@@ -37,13 +38,12 @@ Where X.X.X is desired version number.
 
 <table style="width:auto;">
   <tr>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#0">[0]</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#1">[1]</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#x">x</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#y">y</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#immutable">immutable</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#length">length</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#magnitude">magnitude</a></td>
   </tr>
   <tr>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#magnitude">magnitude</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#mutable">mutable</a></td>
   </tr>
 </table>
@@ -72,24 +72,25 @@ Where X.X.X is desired version number.
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#add">add</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#clampmagnitude">clampMagnitude</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#clone">clone</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#normalize">normalize</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#iszerovector">isZeroVector</a></td>
   </tr>
   <tr>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#normalize">normalize</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#normalized">normalized</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#rescale">rescale</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#rotate">rotate</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#rotatedeg">rotateDeg</a></td>
   </tr>
   <tr>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#rotatedeg">rotateDeg</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#rotate90">rotate90</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#rotate180">rotate180</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#rotate270">rotate270</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#scale">scale</a></td>
   </tr>
   <tr>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#scale">scale</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#set">set</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#setarray">setArray</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#sub">sub</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#toarray">toArray</a></td>
   </tr>
 </table>
 
@@ -110,12 +111,11 @@ Where X.X.X is desired version number.
   </tr>
   <tr>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#dot">dot</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#fromarray">fromArray</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#lerp">lerp</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#lerprot">lerpRot</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#multiply">multiply</a></td>
   </tr>
   <tr>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#multiply">multiply</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#signedangle">signedAngle</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#signedangledeg">signedAngleDeg</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#sub-1">sub</a></td>

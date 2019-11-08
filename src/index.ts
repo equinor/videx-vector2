@@ -8,6 +8,7 @@ import {
   dist,
   dot as baseDot,
   mix,
+  isZeroVector,
 } from '@equinor/videx-linear-algebra';
 
 import { RAD2DEG, DEG2RAD } from './const';
@@ -54,9 +55,28 @@ export default class Vector2 {
    * @param x Initial x component of vector
    * @param y Initial y component of vector
    */
-  constructor(x: number, y: number) {
-    this[0] = x;
-    this[1] = y;
+  constructor(x: number, y: number);
+
+  /**
+   * Construct a new Vector2.
+   * @param array Array with values on the format: [ x, y ]
+   */
+  constructor(array: number[]);
+
+  /**
+   * Construct a new Vector2.
+   * @param nums A series of numbers
+   */
+  constructor(...nums: number[]);
+
+  constructor(a: number | number[], ...b : number[]) {
+    if(Array.isArray(a)){
+      this[0] = a[0];
+      this[1] = a[1];
+    } else {
+      this[0] = a;
+      this[1] = b[0];
+    }
   }
 
   /**
@@ -114,19 +134,63 @@ export default class Vector2 {
    * @param y New y component of vector
    * @returns Reference to self
    */
-  set(x: number, y: number): Vector2 {
-    this[0] = x;
-    this[1] = y;
+  set(x: number, y: number): Vector2
+
+  /**
+   * [Mutation] Set both components of vector.
+   * @param array Array with values on the format: [ x, y ]
+   * @returns Reference to self
+   */
+  set(array: number[]): Vector2
+
+  set(a: number|number[], b: number = null): Vector2 {
+    if(Array.isArray(a)){
+      this[0] = a[0];
+      this[1] = a[1];
+    } else {
+      this[0] = a;
+      this[1] = b;
+    }
     return this;
   }
 
   /**
    * Add values of given vector to target vector.
-   * @param b Vector to add
+   * @param x X component to add
+   * @param y Y component to add
    * @returns Resulting vector
    */
-  add(b : [number, number]|Vector2) : Vector2 {
-    return baseAdd(this, b, this.mutate ? this : Vector2.zero);
+  add(x: number, y: number): Vector2
+
+  /**
+   * Add values of given vector to target vector.
+   * @param array Array to add on the format: [ x, y ]
+   * @returns Resulting vector
+   */
+  add(array: number[]): Vector2
+
+  /**
+   * Add values of given vector to target vector.
+   * @param vector Vector to add
+   * @returns Resulting vector
+   */
+  add(vector: Vector2): Vector2
+
+  add(a: number|number[]|Vector2, b: number = 0): Vector2 {
+    if(typeof a == 'number') {
+      if(this.mutate) {
+        this[0] += a;
+        this[1] += b;
+        return this;
+      }
+      return new Vector2(this[0] + a, this[1] + b);
+    }
+    if(this.mutate) {
+      this[0] += a[0];
+      this[1] += a[1];
+      return this;
+    }
+    return new Vector2(this[0] + a[0], this[1] + a[1]);
   }
 
   /**
@@ -144,11 +208,41 @@ export default class Vector2 {
 
   /**
    * Subtract values of given vector from target vector.
-   * @param b Vector to subtract
+   * @param x X component to subtract
+   * @param y Y component to subtract
    * @returns Resulting vector
    */
-  sub(b: [number, number]|Vector2): Vector2 {
-    return baseSub(this, b, this.mutate ? this : Vector2.zero);
+  sub(x: number, y: number): Vector2
+
+  /**
+   * Subtract values of given vector from target vector.
+   * @param array Array to subtract on the format: [ x, y ]
+   * @returns Resulting vector
+   */
+  sub(array: number[]): Vector2
+
+  /**
+   * Subtract values of given vector from target vector.
+   * @param vector Vector to subtract
+   * @returns Resulting vector
+   */
+  sub(vector: Vector2): Vector2
+
+  sub(a: number|number[]|Vector2, b: number = 0): Vector2 {
+    if(typeof a == 'number') {
+      if(this.mutate) {
+        this[0] -= a;
+        this[1] -= b;
+        return this;
+      }
+      return new Vector2(this[0] - a, this[1] - b);
+    }
+    if(this.mutate) {
+      this[0] -= a[0];
+      this[1] -= a[1];
+      return this;
+    }
+    return new Vector2(this[0] - a[0], this[1] - a[1]);
   }
 
   /**
@@ -401,24 +495,36 @@ export default class Vector2 {
   }
 
   /**
-   * [Mutation] Set both components of a vector from an array.
-   * @param array Array to get values from
-   * @returns Reference to self
+   * Returns true if x and y is zero, otherwise returns false.
+   * @param epsilon Accepted deviation from 0.00 (Default: 0)
+   * @returns — Is target zero vector?
    */
-  setArray(array: [number, number]) : Vector2 {
-    this[0] = array[0];
-    this[1] = array[1];
-    return this;
+  isZeroVector(epsilon: number = 0): boolean {
+    return isZeroVector(this, epsilon);
   }
 
   /**
-   * Create a vector from an array.
-   * @param array Array to get values from
-   * @returns Reference to self
+   * Create an array from the vector.
+   * @returns Array on the format: [ x, y ]
    */
-  static fromArray(array: [number, number]) : Vector2 {
-    return new Vector2(array[0], array[1]);
+  toArray() : [number, number] {
+    return [this[0], this[1]];
   }
+
+  // Iterator
+  [Symbol.iterator]() {
+    let i = 0;
+
+    return {
+      next: () => {
+        switch(i++) {
+          case 0: return {value: this[0], done: false};
+          case 1: return {value: this[1], done: false};
+          default: return {value: -1, done: true};
+        }
+      }
+    };
+  };
 
   /**
    * Vector2 with values: [0, 0].
