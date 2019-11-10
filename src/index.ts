@@ -58,6 +58,12 @@ export default class Vector2 {
   constructor(x: number, y: number);
 
   /**
+   * Construct a new Vector2 using component from another vector.
+   * @param vector
+   */
+  constructor(vector: Vector2);
+
+  /**
    * Construct a new Vector2.
    * @param array Array with values on the format: [ x, y ]
    */
@@ -69,8 +75,8 @@ export default class Vector2 {
    */
   constructor(...nums: number[]);
 
-  constructor(a: number | number[], ...b : number[]) {
-    if(Array.isArray(a)){
+  constructor(a: number | number[] | Vector2, ...b : number[]) {
+    if(Array.isArray(a) || a instanceof Vector2){
       this[0] = a[0];
       this[1] = a[1];
     } else {
@@ -207,7 +213,7 @@ export default class Vector2 {
   }
 
   /**
-   * Subtract values of given vector from target vector.
+   * Subtract from vector.
    * @param x X component to subtract
    * @param y Y component to subtract
    * @returns Resulting vector
@@ -215,14 +221,14 @@ export default class Vector2 {
   sub(x: number, y: number): Vector2
 
   /**
-   * Subtract values of given vector from target vector.
+   * Subtract from vector.
    * @param array Array to subtract on the format: [ x, y ]
    * @returns Resulting vector
    */
   sub(array: number[]): Vector2
 
   /**
-   * Subtract values of given vector from target vector.
+   * Subtract from vector.
    * @param vector Vector to subtract
    * @returns Resulting vector
    */
@@ -255,6 +261,51 @@ export default class Vector2 {
    */
   static sub(a: [number, number]|Vector2, b: [number, number]|Vector2): Vector2 {
     return baseSub(a, b, Vector2.zero);
+  }
+
+  /**
+   * target - this
+   *
+   * Subtract this vector from given vector.
+   * @param x X component to subtract from
+   * @param y Y component to subtract from
+   * @returns Resulting vector
+   */
+  subFrom(x: number, y: number): Vector2
+
+  /**
+   * target - this
+   *
+   * Subtract this vector from given vector.
+   * @param array Array to subtract from on the format: [ x, y ]
+   * @returns Resulting vector
+   */
+  subFrom(array: number[]): Vector2
+
+  /**
+   * target - this
+   *
+   * Subtract this vector from given vector.
+   * @param vector Vector to to subtract from
+   * @returns Resulting vector
+   */
+  subFrom(vector: Vector2): Vector2
+
+  subFrom(a: number|number[]|Vector2, b: number = 0): Vector2 {
+    if(typeof a == 'number') {
+      if(this.mutate) {
+        this[0] = a - this[0];
+        this[1] = b - this[1];
+        return this;
+      }
+      return new Vector2(a - this[0], b - this[1]);
+    }
+    if(this.mutate) {
+      this[0] = a[0] - this[0];
+      this[1] = a[1] - this[1];
+      return this;
+    }
+    return new Vector2(a[0] - this[0], a[1] - this[1]);
   }
 
   /**

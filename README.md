@@ -90,6 +90,9 @@ Where X.X.X is desired version number.
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#scale">scale</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#set">set</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#sub">sub</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#subFrom">sub</a></td>
+  </tr>
+  <tr>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#toarray">toArray</a></td>
   </tr>
 </table>

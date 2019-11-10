@@ -24,6 +24,9 @@ describe('Vector2.js', () => {
 
     const c = new Vector2(...array);
     expectVector2ToBe(c, [1, 2]);
+
+    const d = new Vector2(a);
+    expectVector2ToBe(d, [1, 2]);
   });
 
 
@@ -74,6 +77,16 @@ describe('Vector2.js', () => {
     const m = new Vector2(2, 3).mutable;
     m.sub([1, 2]);
     expectVector2ToBe(m, [1, 1]);
+  });
+
+  it('subFrom', () => {
+    const v = new Vector2(1, 1);
+    expectVector2ToBe(v.subFrom([3, 2]), [2, 1]);
+    expectVector2ToBe(v.subFrom(new Vector2(3, 2)), [2, 1]);
+
+    const m = new Vector2(1, 1).mutable;
+    m.subFrom(3, 2);
+    expectVector2ToBe(m, [2, 1]);
   });
 
 
