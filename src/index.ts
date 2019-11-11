@@ -149,13 +149,20 @@ export default class Vector2 {
    */
   set(array: number[]): Vector2
 
-  set(a: number|number[], b: number = null): Vector2 {
-    if(Array.isArray(a)){
-      this[0] = a[0];
-      this[1] = a[1];
-    } else {
+  /**
+   * [Mutation] Copy x and y component from another vector.
+   * @param array Vector with values to copy
+   * @returns Reference to self
+   */
+  set(array: Vector2): Vector2
+
+  set(a: number|number[]|Vector2, b: number = 0): Vector2 {
+    if(typeof a === 'number'){
       this[0] = a;
       this[1] = b;
+    } else {
+      this[0] = a[0];
+      this[1] = a[1];
     }
     return this;
   }
