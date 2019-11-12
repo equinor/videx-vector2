@@ -18,7 +18,7 @@ describe('Vector2.js', () => {
     expectVector2ToBe(a, [1, 2]);
     expect(a.mutate).toBeFalsy();
 
-    const array = [1, 2];
+    const array: [number, number] = [1, 2];
     const b = new Vector2(array);
     expectVector2ToBe(b, [1, 2]);
 

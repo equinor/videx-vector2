@@ -67,7 +67,7 @@ export default class Vector2 {
    * Construct a new Vector2.
    * @param array Array with values on the format: [ x, y ]
    */
-  constructor(array: number[]);
+  constructor(array: [number, number]);
 
   /**
    * Construct a new Vector2.
@@ -75,7 +75,7 @@ export default class Vector2 {
    */
   constructor(...nums: number[]);
 
-  constructor(a: number | number[] | Vector2, ...b : number[]) {
+  constructor(a: number | [number, number] | Vector2, ...b : number[]) {
     if(Array.isArray(a) || a instanceof Vector2){
       this[0] = a[0];
       this[1] = a[1];
@@ -147,7 +147,7 @@ export default class Vector2 {
    * @param array Array with values on the format: [ x, y ]
    * @returns Reference to self
    */
-  set(array: number[]): Vector2
+  set(array: [number, number]): Vector2
 
   /**
    * [Mutation] Copy x and y component from another vector.
@@ -156,7 +156,7 @@ export default class Vector2 {
    */
   set(array: Vector2): Vector2
 
-  set(a: number|number[]|Vector2, b: number = 0): Vector2 {
+  set(a: number|[number, number]|Vector2, b: number = 0): Vector2 {
     if(typeof a === 'number'){
       this[0] = a;
       this[1] = b;
@@ -180,7 +180,7 @@ export default class Vector2 {
    * @param array Array to add on the format: [ x, y ]
    * @returns Resulting vector
    */
-  add(array: number[]): Vector2
+  add(array: [number, number]): Vector2
 
   /**
    * Add values of given vector to target vector.
@@ -189,7 +189,7 @@ export default class Vector2 {
    */
   add(vector: Vector2): Vector2
 
-  add(a: number|number[]|Vector2, b: number = 0): Vector2 {
+  add(a: number|[number, number]|Vector2, b: number = 0): Vector2 {
     if(typeof a == 'number') {
       if(this.mutate) {
         this[0] += a;
@@ -232,7 +232,7 @@ export default class Vector2 {
    * @param array Array to subtract on the format: [ x, y ]
    * @returns Resulting vector
    */
-  sub(array: number[]): Vector2
+  sub(array: [number, number]): Vector2
 
   /**
    * Subtract from vector.
@@ -241,7 +241,7 @@ export default class Vector2 {
    */
   sub(vector: Vector2): Vector2
 
-  sub(a: number|number[]|Vector2, b: number = 0): Vector2 {
+  sub(a: number|[number, number]|Vector2, b: number = 0): Vector2 {
     if(typeof a == 'number') {
       if(this.mutate) {
         this[0] -= a;
@@ -287,7 +287,7 @@ export default class Vector2 {
    * @param array Array to subtract from on the format: [ x, y ]
    * @returns Resulting vector
    */
-  subFrom(array: number[]): Vector2
+  subFrom(array: [number, number]): Vector2
 
   /**
    * target - this
@@ -298,7 +298,7 @@ export default class Vector2 {
    */
   subFrom(vector: Vector2): Vector2
 
-  subFrom(a: number|number[]|Vector2, b: number = 0): Vector2 {
+  subFrom(a: number|[number, number]|Vector2, b: number = 0): Vector2 {
     if(typeof a == 'number') {
       if(this.mutate) {
         this[0] = a - this[0];
