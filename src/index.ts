@@ -569,6 +569,17 @@ export default class Vector2 {
     return [this[0], this[1]];
   }
 
+  /**
+   * [Mutation] Modifies both the x and y-component of a vector using a given function.
+   * @param modifier Function used to modify
+   * @returns Reference to vector
+   */
+  modify(modifier: (d: number) => number): Vector2 {
+    this[0] = modifier(this[0]);
+    this[1] = modifier(this[1]);
+    return this;
+  }
+
   // Iterator
   [Symbol.iterator]() {
     let i = 0;

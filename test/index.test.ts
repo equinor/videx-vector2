@@ -265,6 +265,16 @@ describe('Vector2.js', () => {
     expectVector2ToBe(b, [2, 3]);
   });
 
+  it('modify', () => {
+    const a = new Vector2(Math.PI, 2.14);
+    a.modify(Math.floor);
+    expectVector2ToBe(a, [3, 2]);
+
+    const b = new Vector2(0.25, 1);
+    b.modify(d => 1 - d);
+    expectVector2ToBe(b, [0.75, 0]);
+  });
+
   it('iterator', () => {
     const a = new Vector2(2, 3);
     expectVector2ToBe([...a], [2, 3]);
