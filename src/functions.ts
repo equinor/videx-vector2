@@ -11,8 +11,9 @@ import Vector2 from './index';
 export function rotate(v: Vector2, rad: number, target: Vector2): Vector2 {
   const cr = Math.cos(rad);
   const sr = Math.sin(rad);
-  target.x = cr * v[0] - sr * v[1];
-  target.y = sr * v[0] + cr * v[1];
+  const x = v[0];
+  target[0] = cr * x - sr * v[1];
+  target[1] = sr * x + cr * v[1];
   return target;
 }
 
