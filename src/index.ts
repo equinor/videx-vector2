@@ -31,14 +31,9 @@ import {
  */
 export default class Vector2 {
   /**
-   * X component of vector
+   * Declare that Vector2 will have numeric properties.
    */
-  0: number;
-
-  /**
-   * Y component of vector
-   */
-  1: number;
+  [index: number]: number;
 
   /**
    * Does the vector mutate?
