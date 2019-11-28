@@ -91,6 +91,15 @@
 					</li>
 				</ul>
 			</section>
+			<section class="tsd-panel tsd-kind-class tsd-parent-kind-external-module">
+				<h3 class="tsd-before-signature">Indexable</h3>
+				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>index: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">number</span></div>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Declare that Vector2 will have numeric properties.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -104,8 +113,6 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_index_.vector2.html#0" class="tsd-kind-icon">0</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_index_.vector2.html#1" class="tsd-kind-icon">1</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_index_.vector2.html#length" class="tsd-kind-icon">length</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_index_.vector2.html#mutate" class="tsd-kind-icon">mutate</a></li>
 							</ul>
@@ -177,15 +184,14 @@
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Vector2<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Vector2<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Vector2<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Vector2<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Vector2<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>nums<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L51">index.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L48">index.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -217,7 +223,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L58">index.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L55">index.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -228,7 +234,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>vector: <a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>vector: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 										</div>
@@ -240,31 +246,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L64">index.ts:64</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Construct a new Vector2.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>array: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Array with values on the format: [ x, y ]</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L70">index.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L61">index.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -291,42 +273,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="0" class="tsd-anchor"></a>
-					<h3>0</h3>
-					<div class="tsd-signature tsd-kind-icon">0<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L36">index.ts:36</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>X component of vector</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="1" class="tsd-anchor"></a>
-					<h3>1</h3>
-					<div class="tsd-signature tsd-kind-icon">1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L41">index.ts:41</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Y component of vector</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="length" class="tsd-anchor"></a>
 					<h3>length</h3>
 					<div class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;2</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L51">index.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L48">index.ts:48</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -341,7 +293,7 @@
 					<div class="tsd-signature tsd-kind-icon">mutate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L46">index.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L43">index.ts:43</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -363,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L132">index.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L123">index.ts:123</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -387,7 +339,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L111">index.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L102">index.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -400,7 +352,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L114">index.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L105">index.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -428,7 +380,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L123">index.ts:123</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L114">index.ts:114</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -452,7 +404,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L91">index.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L82">index.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -465,7 +417,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L94">index.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L85">index.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -494,7 +446,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L101">index.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L92">index.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -507,7 +459,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L104">index.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L95">index.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -535,7 +487,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L638">index.ts:638</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L586">index.ts:586</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -562,7 +514,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L644">index.ts:644</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L592">index.ts:592</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -589,7 +541,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L620">index.ts:620</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L568">index.ts:568</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -616,7 +568,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L608">index.ts:608</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L556">index.ts:556</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -643,7 +595,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L614">index.ts:614</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L562">index.ts:562</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -670,7 +622,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L632">index.ts:632</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L580">index.ts:580</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -697,7 +649,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L626">index.ts:626</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L574">index.ts:574</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -724,7 +676,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L602">index.ts:602</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L550">index.ts:550</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -754,7 +706,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L584">index.ts:584</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L532">index.ts:532</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -768,7 +720,7 @@
 										<li class="tsd-description">
 											<aside class="tsd-sources">
 												<ul>
-													<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L588">index.ts:588</a></li>
+													<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L536">index.ts:536</a></li>
 												</ul>
 											</aside>
 											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -791,14 +743,13 @@
 					<h3>add</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
-						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
-						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L176">index.ts:176</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L160">index.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -827,7 +778,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L183">index.ts:183</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L167">index.ts:167</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -838,30 +789,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>array: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Array to add on the format: [ x, y ]</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h4>
-							<p>Resulting vector</p>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L190">index.ts:190</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Add values of given vector to target vector.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>vector: <a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>vector: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Vector to add</p>
 									</div>
@@ -882,7 +810,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L367">index.ts:367</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L316">index.ts:316</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -915,7 +843,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L551">index.ts:551</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L501">index.ts:501</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -939,7 +867,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L560">index.ts:560</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L510">index.ts:510</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -971,7 +899,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L577">index.ts:577</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L527">index.ts:527</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1021,7 +949,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L424">index.ts:424</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L373">index.ts:373</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1044,7 +972,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L432">index.ts:432</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L381">index.ts:381</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1067,7 +995,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L356">index.ts:356</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L305">index.ts:305</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1099,7 +1027,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L379">index.ts:379</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L328">index.ts:328</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1132,7 +1060,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L407">index.ts:407</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L356">index.ts:356</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1156,7 +1084,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L416">index.ts:416</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L365">index.ts:365</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1180,7 +1108,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L398">index.ts:398</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L347">index.ts:347</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1204,7 +1132,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L389">index.ts:389</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L338">index.ts:338</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1234,7 +1162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L347">index.ts:347</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L296">index.ts:296</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1261,14 +1189,13 @@
 					<h3>set</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
-						<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
-						<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+						<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L143">index.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L134">index.ts:134</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1297,7 +1224,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L150">index.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L141">index.ts:141</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1308,32 +1235,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>array: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
+									<h5>vector: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Array with values on the format: [ x, y ]</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h4>
-							<p>Reference to self</p>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L157">index.ts:157</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>[Mutation] Copy x and y component from another vector.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>array: <a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Vector with values to copy</p>
+										<p>Vector-like object with values on the format: [ x, y ]</p>
 									</div>
 								</li>
 							</ul>
@@ -1347,14 +1251,13 @@
 					<h3>sub</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">sub<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
-						<li class="tsd-signature tsd-kind-icon">sub<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
-						<li class="tsd-signature tsd-kind-icon">sub<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+						<li class="tsd-signature tsd-kind-icon">sub<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L228">index.ts:228</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L198">index.ts:198</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1383,7 +1286,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L235">index.ts:235</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L205">index.ts:205</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1394,30 +1297,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>array: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Array to subtract on the format: [ x, y ]</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h4>
-							<p>Resulting vector</p>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L242">index.ts:242</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Subtract from vector.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>vector: <a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>vector: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Vector to subtract</p>
 									</div>
@@ -1433,14 +1313,13 @@
 					<h3>sub<wbr>From</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">sub<wbr>From<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
-						<li class="tsd-signature tsd-kind-icon">sub<wbr>From<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
-						<li class="tsd-signature tsd-kind-icon">sub<wbr>From<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+						<li class="tsd-signature tsd-kind-icon">sub<wbr>From<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L281">index.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L237">index.ts:237</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1470,7 +1349,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L290">index.ts:290</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L246">index.ts:246</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1482,31 +1361,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>array: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Array to subtract from on the format: [ x, y ]</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h4>
-							<p>Resulting vector</p>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L299">index.ts:299</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>target - this</p>
-								</div>
-								<p>Subtract this vector from given vector.</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>vector: <a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>vector: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Vector to to subtract from</p>
 									</div>
@@ -1527,7 +1382,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L568">index.ts:568</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L518">index.ts:518</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1544,13 +1399,13 @@
 					<a name="add-1" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> add</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L218">index.ts:218</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L187">index.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1566,13 +1421,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>a: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Left operand</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>b: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Right operand</p>
 									</div>
@@ -1587,13 +1442,13 @@
 					<a name="angle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> angle</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">angle<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">angle<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L490">index.ts:490</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L439">index.ts:439</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1604,13 +1459,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>a: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>First vector</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>b: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Second vector</p>
 									</div>
@@ -1625,13 +1480,13 @@
 					<a name="angledeg" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> angle<wbr>Deg</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">angle<wbr>Deg<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">angle<wbr>Deg<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L500">index.ts:500</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L449">index.ts:449</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1642,13 +1497,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>a: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>First vector</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>b: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Second vector</p>
 									</div>
@@ -1663,13 +1518,13 @@
 					<a name="angleright" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> angle<wbr>Right</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">angle<wbr>Right<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">angle<wbr>Right<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L471">index.ts:471</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L420">index.ts:420</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1680,7 +1535,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>v: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>v: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Target vector</p>
 									</div>
@@ -1695,13 +1550,13 @@
 					<a name="anglerightdeg" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> angle<wbr>Right<wbr>Deg</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">angle<wbr>Right<wbr>Deg<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">angle<wbr>Right<wbr>Deg<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L480">index.ts:480</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L429">index.ts:429</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1712,7 +1567,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>v: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>v: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Target vector</p>
 									</div>
@@ -1727,13 +1582,13 @@
 					<a name="cross" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> cross</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">cross<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">cross<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L462">index.ts:462</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L411">index.ts:411</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1744,13 +1599,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>a: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>First vector</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>b: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Second vector</p>
 									</div>
@@ -1765,13 +1620,13 @@
 					<a name="distance" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> distance</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">distance<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">distance<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L442">index.ts:442</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L391">index.ts:391</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1782,13 +1637,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>a: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>First position</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>b: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Second position</p>
 									</div>
@@ -1803,13 +1658,13 @@
 					<a name="divide" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> divide</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">divide<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+						<li class="tsd-signature tsd-kind-icon">divide<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L326">index.ts:326</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L273">index.ts:273</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1821,7 +1676,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>v: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>v: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Vector to divide</p>
 									</div>
@@ -1842,13 +1697,13 @@
 					<a name="dot" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> dot</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">dot<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">dot<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L452">index.ts:452</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L401">index.ts:401</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1859,13 +1714,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>a: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>First vector</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>b: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Second vector</p>
 									</div>
@@ -1880,13 +1735,13 @@
 					<a name="lerp" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> lerp</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">lerp<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, t<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+						<li class="tsd-signature tsd-kind-icon">lerp<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, t<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L531">index.ts:531</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L480">index.ts:480</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1897,13 +1752,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>a: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Position to interpolate from</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>b: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Position to interpolate to</p>
 									</div>
@@ -1924,13 +1779,13 @@
 					<a name="lerprot" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> lerp<wbr>Rot</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">lerp<wbr>Rot<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, t<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+						<li class="tsd-signature tsd-kind-icon">lerp<wbr>Rot<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, t<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L542">index.ts:542</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L492">index.ts:492</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1941,13 +1796,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>a: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Vector to interpolate from</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>b: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Vector to interpolate to</p>
 									</div>
@@ -1968,13 +1823,13 @@
 					<a name="multiply" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> multiply</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">multiply<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+						<li class="tsd-signature tsd-kind-icon">multiply<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L338">index.ts:338</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L286">index.ts:286</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1986,7 +1841,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>v: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>v: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Vector to multiply</p>
 									</div>
@@ -2007,13 +1862,13 @@
 					<a name="signedangle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> signed<wbr>Angle</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">signed<wbr>Angle<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">signed<wbr>Angle<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L510">index.ts:510</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L459">index.ts:459</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2024,13 +1879,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>a: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>First vector</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>b: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Second vector</p>
 									</div>
@@ -2045,13 +1900,13 @@
 					<a name="signedangledeg" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> signed<wbr>Angle<wbr>Deg</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">signed<wbr>Angle<wbr>Deg<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">signed<wbr>Angle<wbr>Deg<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L520">index.ts:520</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L469">index.ts:469</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2062,13 +1917,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>a: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>First vector</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>b: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Second vector</p>
 									</div>
@@ -2083,13 +1938,13 @@
 					<a name="sub-1" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> sub</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">sub<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
+						<li class="tsd-signature tsd-kind-icon">sub<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VectorLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/04c78a2/src/index.ts#L269">index.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/equinor/videx-vector2/blob/16b02cd/src/index.ts#L224">index.ts:224</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2101,13 +1956,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>a: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Left operand</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="_index_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>b: <span class="tsd-signature-type">VectorLike</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Right operand</p>
 									</div>
@@ -2146,12 +2001,6 @@
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="_index_.vector2.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_index_.vector2.html#0" class="tsd-kind-icon">0</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_index_.vector2.html#1" class="tsd-kind-icon">1</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_index_.vector2.html#length" class="tsd-kind-icon">length</a>

@@ -1,6 +1,6 @@
 {
   "name": "@equinor/videx-vector2",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "description": "Vector2 class library written in javascript.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -52,7 +52,7 @@
     "typescript": "^3.6.4"
   },
   "dependencies": {
-    "@equinor/videx-linear-algebra": "^1.0.6"
+    "@equinor/videx-linear-algebra": "^1.0.7"
   },
   "jest": {
     "transform": {

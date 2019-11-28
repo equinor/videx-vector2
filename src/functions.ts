@@ -1,4 +1,7 @@
 import Vector2 from './index';
+import {
+  VectorLike,
+} from '@equinor/videx-linear-algebra';
 
 /**
  * Rotate vector by a given amount of radians.
@@ -65,7 +68,7 @@ export function rotate270(v: Vector2, target: Vector2): Vector2 {
  * @param b Right operand
  * @return Signed area of the parallellogram defined by v1 and v2
  */
-export function cross(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+export function cross(a: VectorLike, b: VectorLike): number {
   return (a[0] * b[1]) - (a[1] * b[0]);
 }
 
@@ -75,7 +78,7 @@ export function cross(a: [number, number]|Vector2, b: [number, number]|Vector2):
  * @param v Target vector
  * @return Angle in radians
  */
-export function angleRight(v: [number, number]|Vector2): number {
+export function angleRight(v: VectorLike): number {
   return Math.atan2(v[1], v[0]);
 }
 
@@ -86,7 +89,7 @@ export function angleRight(v: [number, number]|Vector2): number {
  * @param b Second vector
  * @returns Signed angle between vectors
  */
-export function signedAngle(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+export function signedAngle(a: VectorLike, b: VectorLike): number {
   let phi = Math.atan2(b[1], b[0]) - Math.atan2(a[1], a[0]);
   if (phi > Math.PI) {
     phi -= 2 * Math.PI;

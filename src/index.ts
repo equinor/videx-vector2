@@ -1,5 +1,6 @@
 
 import {
+  VectorLike,
   add as baseAdd,
   sub as baseSub,
   scale as baseScale,
@@ -9,6 +10,7 @@ import {
   dot as baseDot,
   mix,
   isZeroVector,
+  modify as baseModify,
 } from '@equinor/videx-linear-algebra';
 
 import { RAD2DEG, DEG2RAD } from './const';
@@ -56,13 +58,7 @@ export default class Vector2 {
    * Construct a new Vector2 using component from another vector.
    * @param vector
    */
-  constructor(vector: Vector2);
-
-  /**
-   * Construct a new Vector2.
-   * @param array Array with values on the format: [ x, y ]
-   */
-  constructor(array: [number, number]);
+  constructor(vector: VectorLike);
 
   /**
    * Construct a new Vector2.
@@ -70,13 +66,13 @@ export default class Vector2 {
    */
   constructor(...nums: number[]);
 
-  constructor(a: number | [number, number] | Vector2, ...b : number[]) {
-    if(Array.isArray(a) || a instanceof Vector2){
-      this[0] = a[0];
-      this[1] = a[1];
-    } else {
+  constructor(a: number | VectorLike, ...b : number[]) {
+    if(typeof a === 'number'){
       this[0] = a;
       this[1] = b[0];
+    } else {
+      this[0] = a[0];
+      this[1] = a[1];
     }
   }
 
@@ -139,19 +135,12 @@ export default class Vector2 {
 
   /**
    * [Mutation] Set both components of vector.
-   * @param array Array with values on the format: [ x, y ]
+   * @param vector Vector-like object with values on the format: [ x, y ]
    * @returns Reference to self
    */
-  set(array: [number, number]): Vector2
+  set(vector: VectorLike): Vector2
 
-  /**
-   * [Mutation] Copy x and y component from another vector.
-   * @param array Vector with values to copy
-   * @returns Reference to self
-   */
-  set(array: Vector2): Vector2
-
-  set(a: number|[number, number]|Vector2, b: number = 0): Vector2 {
+  set(a: number|VectorLike, b: number = 0): Vector2 {
     if(typeof a === 'number'){
       this[0] = a;
       this[1] = b;
@@ -172,33 +161,18 @@ export default class Vector2 {
 
   /**
    * Add values of given vector to target vector.
-   * @param array Array to add on the format: [ x, y ]
-   * @returns Resulting vector
-   */
-  add(array: [number, number]): Vector2
-
-  /**
-   * Add values of given vector to target vector.
    * @param vector Vector to add
    * @returns Resulting vector
    */
-  add(vector: Vector2): Vector2
+  add(vector: VectorLike): Vector2
 
-  add(a: number|[number, number]|Vector2, b: number = 0): Vector2 {
+  add(a: number|VectorLike, b: number = 0): Vector2 {
     if(typeof a == 'number') {
-      if(this.mutate) {
-        this[0] += a;
-        this[1] += b;
-        return this;
-      }
-      return new Vector2(this[0] + a, this[1] + b);
+      if(this.mutate)  return baseAdd(this, [a, b]);
+      return baseAdd(this.clone(), [a, b]);
     }
-    if(this.mutate) {
-      this[0] += a[0];
-      this[1] += a[1];
-      return this;
-    }
-    return new Vector2(this[0] + a[0], this[1] + a[1]);
+    if(this.mutate)  return baseAdd(this, a);
+    return baseAdd(this.clone(), a);
   }
 
   /**
@@ -210,8 +184,9 @@ export default class Vector2 {
    * @returns Resulting vector
    * @static
    */
-  static add(a: [number, number]|Vector2, b: [number, number]|Vector2): Vector2 {
-    return baseAdd(a, b, Vector2.zero);
+  static add(a: VectorLike, b: VectorLike): Vector2 {
+    const output = new Vector2(a);
+    return baseAdd<Vector2>(output, b);
   }
 
   /**
@@ -224,33 +199,18 @@ export default class Vector2 {
 
   /**
    * Subtract from vector.
-   * @param array Array to subtract on the format: [ x, y ]
-   * @returns Resulting vector
-   */
-  sub(array: [number, number]): Vector2
-
-  /**
-   * Subtract from vector.
    * @param vector Vector to subtract
    * @returns Resulting vector
    */
-  sub(vector: Vector2): Vector2
+  sub(vector: VectorLike): Vector2
 
-  sub(a: number|[number, number]|Vector2, b: number = 0): Vector2 {
+  sub(a: number|VectorLike, b: number = 0): Vector2 {
     if(typeof a == 'number') {
-      if(this.mutate) {
-        this[0] -= a;
-        this[1] -= b;
-        return this;
-      }
-      return new Vector2(this[0] - a, this[1] - b);
+      if(this.mutate)  return baseSub(this, [a, b]);
+      return baseSub(this.clone(), [a, b]);
     }
-    if(this.mutate) {
-      this[0] -= a[0];
-      this[1] -= a[1];
-      return this;
-    }
-    return new Vector2(this[0] - a[0], this[1] - a[1]);
+    if(this.mutate)  return baseSub(this, a);
+    return baseSub(this.clone(), a);
   }
 
   /**
@@ -261,8 +221,9 @@ export default class Vector2 {
    * @param b Right operand
    * @returns Resulting vector
    */
-  static sub(a: [number, number]|Vector2, b: [number, number]|Vector2): Vector2 {
-    return baseSub(a, b, Vector2.zero);
+  static sub(a: VectorLike, b: VectorLike): Vector2 {
+    const output = new Vector2(a);
+    return baseSub(output, b);
   }
 
   /**
@@ -279,21 +240,12 @@ export default class Vector2 {
    * target - this
    *
    * Subtract this vector from given vector.
-   * @param array Array to subtract from on the format: [ x, y ]
-   * @returns Resulting vector
-   */
-  subFrom(array: [number, number]): Vector2
-
-  /**
-   * target - this
-   *
-   * Subtract this vector from given vector.
    * @param vector Vector to to subtract from
    * @returns Resulting vector
    */
-  subFrom(vector: Vector2): Vector2
+  subFrom(vector: VectorLike): Vector2
 
-  subFrom(a: number|[number, number]|Vector2, b: number = 0): Vector2 {
+  subFrom(a: number|VectorLike, b: number = 0): Vector2 {
     if(typeof a == 'number') {
       if(this.mutate) {
         this[0] = a - this[0];
@@ -318,8 +270,9 @@ export default class Vector2 {
    * @param n Numeric value
    * @returns Resulting vector
    */
-  static divide(v: [number, number]|Vector2, n: number): Vector2 {
-    return baseScale(v, 1 / n, Vector2.zero);
+  static divide(v: VectorLike, n: number): Vector2 {
+    const output = new Vector2(v);
+    return baseScale(output, 1 / n);
   }
 
   /**
@@ -330,8 +283,9 @@ export default class Vector2 {
    * @param n Numeric value
    * @returns Resulting vector
    */
-  static multiply(v: [number, number]|Vector2, n: number): Vector2 {
-    return baseScale(v, n, Vector2.zero);
+  static multiply(v: VectorLike, n: number): Vector2 {
+    const output = new Vector2(v);
+    return baseScale(output, n);
   }
 
   /**
@@ -434,7 +388,7 @@ export default class Vector2 {
    * @param b Second position
    * @returns Distance between positions
    */
-  static distance(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+  static distance(a: VectorLike, b: VectorLike): number {
     return dist(a, b);
   }
 
@@ -444,7 +398,7 @@ export default class Vector2 {
    * @param b Second vector
    * @return Dot product
    */
-  static dot(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+  static dot(a: VectorLike, b: VectorLike): number {
     return baseDot(a, b);
   }
 
@@ -454,7 +408,7 @@ export default class Vector2 {
    * @param b Second vector
    * @return Cross product
    */
-  static cross(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+  static cross(a: VectorLike, b: VectorLike): number {
     return cross(a, b);
   }
 
@@ -463,7 +417,7 @@ export default class Vector2 {
    * @param v Target vector
    * @return Angle in radians
    */
-  static angleRight(v: [number, number]|Vector2): number {
+  static angleRight(v: VectorLike): number {
     return angleRight(v);
   }
 
@@ -472,7 +426,7 @@ export default class Vector2 {
    * @param v Target vector
    * @return Angle in degrees
    */
-  static angleRightDeg(v: [number, number]|Vector2): number {
+  static angleRightDeg(v: VectorLike): number {
     return angleRight(v) * RAD2DEG;
   }
 
@@ -482,7 +436,7 @@ export default class Vector2 {
    * @param b Second vector
    * @returns Angle in radians
    */
-  static angle(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+  static angle(a: VectorLike, b: VectorLike): number {
     return Math.abs(signedAngle(a, b));
   }
 
@@ -492,7 +446,7 @@ export default class Vector2 {
    * @param b Second vector
    * @returns Angle in degrees
    */
-  static angleDeg(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+  static angleDeg(a: VectorLike, b: VectorLike): number {
     return Math.abs(signedAngle(a, b)) * RAD2DEG;
   }
 
@@ -502,7 +456,7 @@ export default class Vector2 {
    * @param b Second vector
    * @returns Signed angle in radians
    */
-  static signedAngle(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+  static signedAngle(a: VectorLike, b: VectorLike): number {
     return signedAngle(a, b);
   }
 
@@ -512,7 +466,7 @@ export default class Vector2 {
    * @param b Second vector
    * @returns Signed angle in degrees
    */
-  static signedAngleDeg(a: [number, number]|Vector2, b: [number, number]|Vector2): number {
+  static signedAngleDeg(a: VectorLike, b: VectorLike): number {
     return signedAngle(a, b) * RAD2DEG;
   }
 
@@ -523,8 +477,9 @@ export default class Vector2 {
    * @param t Value between 0 - 1 used for interpolation
    * @returns Interpolated position
    */
-  static lerp(a: [number, number]|Vector2, b: [number, number]|Vector2, t: number): Vector2 {
-    return mix(a, b, t, Vector2.right);
+  static lerp(a: VectorLike, b: VectorLike, t: number): Vector2 {
+    const output = new Vector2(a);
+    return mix(output, b, t);
   }
 
   /**
@@ -534,8 +489,8 @@ export default class Vector2 {
    * @param t Value between 0 - 1 used for interpolation
    * @returns Interpolated vector
    */
-  static lerpRot(a: [number, number]|Vector2, b: [number, number]|Vector2, t: number): Vector2 {
-    return lerpRot(a, b, t, Vector2.right);
+  static lerpRot(a: VectorLike, b: VectorLike, t: number): Vector2 {
+    return lerpRot(a, b, t, Vector2.zero);
   }
 
   /**
@@ -544,7 +499,7 @@ export default class Vector2 {
    * @returns Clone of vector
    */
   clone(): Vector2 {
-    return new Vector2(this.x, this.y);
+    return new Vector2(this[0], this[1]);
   }
 
   /**
@@ -570,9 +525,7 @@ export default class Vector2 {
    * @returns Reference to vector
    */
   modify(modifier: (d: number) => number): Vector2 {
-    this[0] = modifier(this[0]);
-    this[1] = modifier(this[1]);
-    return this;
+    return baseModify(this, modifier);
   }
 
   // Iterator
