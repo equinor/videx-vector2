@@ -115,11 +115,12 @@ Where X.X.X is desired version number.
   </tr>
   <tr>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#dot">dot</a></td>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#iszerovector-1">isZeroVector</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#lerp">lerp</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#lerprot">lerpRot</a></td>
-    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#multiply">multiply</a></td>
   </tr>
   <tr>
+    <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#multiply">multiply</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#signedangle">signedAngle</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#signedangledeg">signedAngleDeg</a></td>
     <td><a href="https://equinor.github.io/videx-vector2/classes/_index_.vector2.html#sub-1">sub</a></td>

@@ -27,6 +27,9 @@ describe('Vector2.js', () => {
 
     const d = new Vector2(a);
     expectVector2ToBe(d, [1, 2]);
+
+    const e = new Vector2(3);
+    expectVector2ToBe(e, [3, 3]);
   });
 
 
@@ -51,6 +54,10 @@ describe('Vector2.js', () => {
     expectVector2ToBe(v, [4, 5]);
     v.set([5, 6]);
     expectVector2ToBe(v, [5, 6]);
+    v.set(2, 0);
+    expectVector2ToBe(v, [2, 0]);
+    v.set(7);
+    expectVector2ToBe(v, [7, 7]);
   });
 
   it('add', () => {
@@ -111,6 +118,8 @@ describe('Vector2.js', () => {
   it('rescale', () => {
     const v = new Vector2(6, 0);
     expectVector2ToBe(v.rescale(2), [2, 0]);
+
+    expectVector2ToBe(Vector2.zero.rescale(2), [0, 0]);
 
     const m = new Vector2(6, 0).mutable;
     m.rescale(2);

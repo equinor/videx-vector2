@@ -48,6 +48,12 @@ export default class Vector2 {
   length: number = 2;
 
   /**
+   * Construct a new Vector2 with identical x and y components.
+   * @param value Value of x and y component
+   */
+  constructor(value: number);
+
+  /**
    * Construct a new Vector2.
    * @param x Initial x component of vector
    * @param y Initial y component of vector
@@ -68,8 +74,14 @@ export default class Vector2 {
 
   constructor(a: number | VectorLike, ...b : number[]) {
     if(typeof a === 'number'){
-      this[0] = a;
-      this[1] = b[0];
+      if (typeof b[0] === 'number') {
+        this[0] = a;
+        this[1] = b[0];
+      }
+      else {
+        this[0] = a;
+        this[1] = a;
+      }
     } else {
       this[0] = a[0];
       this[1] = a[1];
@@ -127,6 +139,13 @@ export default class Vector2 {
 
   /**
    * [Mutation] Set both components of vector.
+   * @param value Value of x and y component
+   * @returns Reference to self
+   */
+  set(value: number): Vector2
+
+  /**
+   * [Mutation] Set both components of vector.
    * @param x New x component of vector
    * @param y New y component of vector
    * @returns Reference to self
@@ -140,10 +159,15 @@ export default class Vector2 {
    */
   set(vector: VectorLike): Vector2
 
-  set(a: number|VectorLike, b: number = 0): Vector2 {
+  set(a: number|VectorLike, b?: number): Vector2 {
     if(typeof a === 'number'){
-      this[0] = a;
-      this[1] = b;
+      if (typeof b === 'number') {
+        this[0] = a;
+        this[1] = b;
+      } else {
+        this[0] = a;
+        this[1] = a;
+      }
     } else {
       this[0] = a[0];
       this[1] = a[1];
@@ -304,6 +328,7 @@ export default class Vector2 {
    */
   rescale(n: number): Vector2 {
     const len = baseMagnitude(this);
+    if (len <= 0) return this.mutate ? this : Vector2.zero;
     return baseScale(this, n / len, this.mutate ? this : Vector2.zero);
   }
 
@@ -504,6 +529,16 @@ export default class Vector2 {
 
   /**
    * Returns true if x and y is zero, otherwise returns false.
+   * @param a Vector to evaluate
+   * @param epsilon Accepted deviation from 0.00 (Default: 0)
+   * @returns — Is target zero vector?
+   */
+  static isZeroVector(vector: VectorLike, epsilon: number = 0): boolean {
+    return isZeroVector(vector, epsilon);
+  }
+
+  /**
+   * Returns true if x and y is zero, otherwise returns false.
    * @param epsilon Accepted deviation from 0.00 (Default: 0)
    * @returns — Is target zero vector?
    */
@@ -531,7 +566,6 @@ export default class Vector2 {
   // Iterator
   [Symbol.iterator]() {
     let i = 0;
-
     return {
       next: () => {
         switch(i++) {
