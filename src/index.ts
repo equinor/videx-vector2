@@ -67,12 +67,18 @@ export default class Vector2 {
   constructor(vector: VectorLike);
 
   /**
+   * Construct a new Vector2 using an object with an x and y key.
+   * @param vector
+   */
+  constructor(vector: {x: number, y: number});
+
+  /**
    * Construct a new Vector2.
    * @param nums A series of numbers
    */
   constructor(...nums: number[]);
 
-  constructor(a: number | VectorLike, ...b : number[]) {
+  constructor(a: number | VectorLike | {x: number, y: number}, ...b : number[]) {
     if(typeof a === 'number'){
       if (typeof b[0] === 'number') {
         this[0] = a;
@@ -83,8 +89,13 @@ export default class Vector2 {
         this[1] = a;
       }
     } else {
-      this[0] = a[0];
-      this[1] = a[1];
+      if ('x' in a && 'y' in a) {
+        this[0] = a.x;
+        this[1] = a.y;
+      } else {
+        this[0] = a[0];
+        this[1] = a[1];
+      }
     }
   }
 
@@ -528,10 +539,33 @@ export default class Vector2 {
   }
 
   /**
+   * Returns true if a equals b. Epsilon defines allowed deviation for the x and y component.
+   * @param a Vector to evaluate
+   * @param b Vector to compare with
+   * @param epsilon Accepted deviation (Default: 0)
+   * @returns Are vectors equal?
+   */
+  static equals(a: VectorLike, b: VectorLike, epsilon: number = 0): boolean {
+    if (Math.abs(a[0] - b[0]) > epsilon) return false;
+    if (Math.abs(a[1] - b[1]) > epsilon) return false;
+    return true;
+  }
+
+  /**
+   * Returns true if vector equals b. Epsilon defines allowed deviation for the x and y component.
+   * @param vector Vector to compare with
+   * @param epsilon Accepted deviation (Default: 0)
+   * @returns Are vectors equal?
+   */
+  equals(vector: VectorLike, epsilon: number = 0): boolean {
+    return Vector2.equals(this, vector, epsilon);
+  }
+
+  /**
    * Returns true if x and y is zero, otherwise returns false.
    * @param a Vector to evaluate
    * @param epsilon Accepted deviation from 0.00 (Default: 0)
-   * @returns — Is target zero vector?
+   * @returns Is target zero vector?
    */
   static isZeroVector(vector: VectorLike, epsilon: number = 0): boolean {
     return isZeroVector(vector, epsilon);
@@ -540,7 +574,7 @@ export default class Vector2 {
   /**
    * Returns true if x and y is zero, otherwise returns false.
    * @param epsilon Accepted deviation from 0.00 (Default: 0)
-   * @returns — Is target zero vector?
+   * @returns Is target zero vector?
    */
   isZeroVector(epsilon: number = 0): boolean {
     return isZeroVector(this, epsilon);

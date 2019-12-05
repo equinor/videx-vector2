@@ -30,6 +30,12 @@ describe('Vector2.js', () => {
 
     const e = new Vector2(3);
     expectVector2ToBe(e, [3, 3]);
+
+    const f = {x: 1, y: 2}
+    expectVector2ToBe(new Vector2(f), [1, 2]);
+
+    const g = {x: 2, y: 3, v1: -1, v2: 3, s1: 'abc', f1: () => {}}
+    expectVector2ToBe(new Vector2(g), [2, 3]);
   });
 
 
@@ -258,6 +264,18 @@ describe('Vector2.js', () => {
     a.set(0, 0);
     expectVector2ToBe(a, [0, 0]);
     expectVector2ToBe(b, [2, 3]);
+  });
+
+  it('equals', () => {
+    const a = new Vector2(2, 3);
+    const b = [2, 3.00002];
+
+    expect(Vector2.equals(a, b)).toBeFalsy();
+    expect(Vector2.equals(a, b, 0.00001)).toBeFalsy();
+    expect(Vector2.equals(a, b, 0.00003)).toBeTruthy();
+
+    expect(a.equals(new Vector2(2, 3.00001))).toBeFalsy();
+    expect(a.equals(new Vector2(2, 3.00001), 0.00002)).toBeTruthy();
   });
 
   it('isZeroVector', () => {
