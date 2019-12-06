@@ -40,7 +40,7 @@ export default class Vector2 {
   /**
    * Does the vector mutate?
    */
-  mutate: boolean = false;
+  isMutating: boolean = false;
 
   /**
    * Length variable to use vector as array.
@@ -135,7 +135,7 @@ export default class Vector2 {
    * @returns Reference to self
    */
   get mutable(): Vector2 {
-    this.mutate = true;
+    this.isMutating = true;
     return this;
   }
 
@@ -144,7 +144,7 @@ export default class Vector2 {
    * @returns Reference to self
    */
   get immutable(): Vector2 {
-    this.mutate = false;
+    this.isMutating = false;
     return this;
   }
 
@@ -203,10 +203,10 @@ export default class Vector2 {
 
   add(a: number|VectorLike, b: number = 0): Vector2 {
     if(typeof a == 'number') {
-      if(this.mutate)  return baseAdd(this, [a, b]);
+      if(this.isMutating)  return baseAdd(this, [a, b]);
       return baseAdd(this.clone(), [a, b]);
     }
-    if(this.mutate)  return baseAdd(this, a);
+    if(this.isMutating)  return baseAdd(this, a);
     return baseAdd(this.clone(), a);
   }
 
@@ -241,10 +241,10 @@ export default class Vector2 {
 
   sub(a: number|VectorLike, b: number = 0): Vector2 {
     if(typeof a == 'number') {
-      if(this.mutate)  return baseSub(this, [a, b]);
+      if(this.isMutating)  return baseSub(this, [a, b]);
       return baseSub(this.clone(), [a, b]);
     }
-    if(this.mutate)  return baseSub(this, a);
+    if(this.isMutating)  return baseSub(this, a);
     return baseSub(this.clone(), a);
   }
 
@@ -282,14 +282,14 @@ export default class Vector2 {
 
   subFrom(a: number|VectorLike, b: number = 0): Vector2 {
     if(typeof a == 'number') {
-      if(this.mutate) {
+      if(this.isMutating) {
         this[0] = a - this[0];
         this[1] = b - this[1];
         return this;
       }
       return new Vector2(a - this[0], b - this[1]);
     }
-    if(this.mutate) {
+    if(this.isMutating) {
       this[0] = a[0] - this[0];
       this[1] = a[1] - this[1];
       return this;
@@ -329,7 +329,7 @@ export default class Vector2 {
    * @returns Resulting vector
    */
   scale(n: number): Vector2 {
-    return baseScale(this, n, this.mutate ? this : Vector2.zero);
+    return baseScale(this, n, this.isMutating ? this : Vector2.zero);
   }
 
   /**
@@ -339,8 +339,8 @@ export default class Vector2 {
    */
   rescale(n: number): Vector2 {
     const len = baseMagnitude(this);
-    if (len <= 0) return this.mutate ? this : Vector2.zero;
-    return baseScale(this, n / len, this.mutate ? this : Vector2.zero);
+    if (len <= 0) return this.isMutating ? this : Vector2.zero;
+    return baseScale(this, n / len, this.isMutating ? this : Vector2.zero);
   }
 
   /**
@@ -351,8 +351,8 @@ export default class Vector2 {
    */
   clampMagnitude(n: number): Vector2 {
     const len = baseMagnitude(this);
-    if (len > n) return baseScale(this, n / len, this.mutate ? this : Vector2.zero);
-    return this.mutate ? this : this.clone();
+    if (len > n) return baseScale(this, n / len, this.isMutating ? this : Vector2.zero);
+    return this.isMutating ? this : this.clone();
   }
 
   /**
@@ -362,7 +362,7 @@ export default class Vector2 {
    * @returns Resulting vector
    */
   rotate(rad: number): Vector2 {
-    return rotate(this, rad, this.mutate ? this : Vector2.zero);
+    return rotate(this, rad, this.isMutating ? this : Vector2.zero);
   }
 
   /**
@@ -372,7 +372,7 @@ export default class Vector2 {
    * @returns Resulting vector
    */
   rotateDeg(deg: number): Vector2 {
-    return rotate(this, deg * DEG2RAD, this.mutate ? this : Vector2.zero);
+    return rotate(this, deg * DEG2RAD, this.isMutating ? this : Vector2.zero);
   }
 
   /**
@@ -381,7 +381,7 @@ export default class Vector2 {
    * @returns Resulting vector
    */
   rotate90(): Vector2 {
-    return rotate90(this, this.mutate ? this : Vector2.zero);
+    return rotate90(this, this.isMutating ? this : Vector2.zero);
   }
 
   /**
@@ -390,7 +390,7 @@ export default class Vector2 {
    * @returns Resulting vector
    */
   rotate180(): Vector2 {
-    return rotate180(this, this.mutate ? this : Vector2.zero);
+    return rotate180(this, this.isMutating ? this : Vector2.zero);
   }
 
   /**
@@ -399,7 +399,7 @@ export default class Vector2 {
    * @returns Resulting vector
    */
   rotate270(): Vector2 {
-    return rotate270(this, this.mutate ? this : Vector2.zero);
+    return rotate270(this, this.isMutating ? this : Vector2.zero);
   }
 
   /**
