@@ -202,7 +202,7 @@ export default class Vector2 {
   add(vector: VectorLike): Vector2
 
   add(a: number|VectorLike, b: number = 0): Vector2 {
-    if(typeof a == 'number') {
+    if(typeof a === 'number') {
       if(this.isMutating)  return baseAdd(this, [a, b]);
       return baseAdd(this.clone(), [a, b]);
     }
@@ -240,7 +240,7 @@ export default class Vector2 {
   sub(vector: VectorLike): Vector2
 
   sub(a: number|VectorLike, b: number = 0): Vector2 {
-    if(typeof a == 'number') {
+    if(typeof a === 'number') {
       if(this.isMutating)  return baseSub(this, [a, b]);
       return baseSub(this.clone(), [a, b]);
     }
@@ -281,7 +281,7 @@ export default class Vector2 {
   subFrom(vector: VectorLike): Vector2
 
   subFrom(a: number|VectorLike, b: number = 0): Vector2 {
-    if(typeof a == 'number') {
+    if(typeof a === 'number') {
       if(this.isMutating) {
         this[0] = a - this[0];
         this[1] = b - this[1];
@@ -607,7 +607,7 @@ export default class Vector2 {
           case 1: return {value: this[1], done: false};
           default: return {value: -1, done: true};
         }
-      }
+      },
     };
   };
 
