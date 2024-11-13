@@ -110,6 +110,7 @@ export function signedAngle(a: VectorLike, b: VectorLike): number {
  * @param target Target for storing the results (Default: a)
  * @returns Interpolated vector
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function lerpRot(a: any, b: any, n: number, target: any = a) {
   const phi = signedAngle(a, b); // Signed angle
   return rotate(a, n * phi, target);

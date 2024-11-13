@@ -1,12 +1,13 @@
-/* eslint-disable import/no-unresolved */
 /* eslint-disable no-undef */
 import Vector2 from '../src/index';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function expectVector2ToBeCloseTo(a : any, b : any, precision : number = 10) {
   expect(a[0]).toBeCloseTo(b[0], precision);
   expect(a[1]).toBeCloseTo(b[1], precision);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function expectVector2ToBe(a : any, b : any) {
   expect(a[0]).toBe(b[0]);
   expect(a[1]).toBe(b[1]);
