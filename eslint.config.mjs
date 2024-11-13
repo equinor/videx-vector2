@@ -22,6 +22,7 @@ export default [
       "docs",
       "rollup.config.mjs",
       "eslint.config.mjs",
+      "postdocs.copyfiles.mjs",
     ],
   },
   {
