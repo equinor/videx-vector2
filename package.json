@@ -1,6 +1,6 @@
 {
   "name": "@equinor/videx-vector2",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "description": "Vector2 class library written in javascript.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -42,7 +42,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "rollup": "^3.29.4",
-    "eslint": "^9.14.0",
+    "eslint": "^9.15.0",
     "eslint-plugin-import": "^2.31.0",
     "@typescript-eslint/eslint-plugin": "^8.13.0",
     "@typescript-eslint/parser": "^8.13.0",
