@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.50](https://github.com/equinor/videx-vector2/compare/v1.0.49...v1.0.50) (2026-01-13)
+
+
+### Bug Fixes
+
+* **110:** remove npm engine ([#41](https://github.com/equinor/videx-vector2/issues/41)) ([bdeabd1](https://github.com/equinor/videx-vector2/commit/bdeabd14641f4055df3811a2ff8d7d5d89de2b30))
+
 ## [1.0.49](https://github.com/equinor/videx-vector2/compare/v1.0.48...v1.0.49) (2026-01-06)
 
 
