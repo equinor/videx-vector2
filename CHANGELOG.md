@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.51](https://github.com/equinor/videx-vector2/compare/v1.0.50...v1.0.51) (2026-03-10)
+
+
+### Bug Fixes
+
+* **npm:** bump minimatch from 3.1.2 to 3.1.5 ([#51](https://github.com/equinor/videx-vector2/issues/51)) ([2f9bda1](https://github.com/equinor/videx-vector2/commit/2f9bda138a6e731a1cedd702b0b045589f19faf5))
+* **npm:** bump rollup from 3.29.5 to 3.30.0 ([#53](https://github.com/equinor/videx-vector2/issues/53)) ([0e5051a](https://github.com/equinor/videx-vector2/commit/0e5051a419a1309c744c2107d11c4e60d6aabc2e))
+* **taskless:** security vulnerabilities ([39db035](https://github.com/equinor/videx-vector2/commit/39db03550cc1f28eb3c960f6942130d4348d0c76))
+* **taskless:** security vulnerabilities ([be4ad07](https://github.com/equinor/videx-vector2/commit/be4ad0720190229241a5165e68e93554f0300f94))
+
 ## [1.0.50](https://github.com/equinor/videx-vector2/compare/v1.0.49...v1.0.50) (2026-01-13)
 
 
