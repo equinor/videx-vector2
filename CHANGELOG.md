@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.52](https://github.com/equinor/videx-vector2/compare/v1.0.51...v1.0.52) (2026-03-23)
+
+
+### Bug Fixes
+
+* **npm:** bump flatted from 3.3.1 to 3.4.2 ([#56](https://github.com/equinor/videx-vector2/issues/56)) ([b240258](https://github.com/equinor/videx-vector2/commit/b2402584e55d4eeb019ce26dcc6a571122d88bd4))
+
 ## [1.0.51](https://github.com/equinor/videx-vector2/compare/v1.0.50...v1.0.51) (2026-03-10)
 
 
