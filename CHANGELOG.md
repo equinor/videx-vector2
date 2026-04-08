@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.53](https://github.com/equinor/videx-vector2/compare/v1.0.52...v1.0.53) (2026-04-08)
+
+
+### Bug Fixes
+
+* **npm:** bump picomatch ([#59](https://github.com/equinor/videx-vector2/issues/59)) ([af1f807](https://github.com/equinor/videx-vector2/commit/af1f807f0b56b1cae3efd615fab10c33f8553762))
+* **npm:** bump serialize-javascript from 7.0.4 to 7.0.5 ([#60](https://github.com/equinor/videx-vector2/issues/60)) ([3c1b874](https://github.com/equinor/videx-vector2/commit/3c1b874594d9bdce16b5275cd9235e0757bf1899))
+
 ## [1.0.52](https://github.com/equinor/videx-vector2/compare/v1.0.51...v1.0.52) (2026-03-23)
 
 
