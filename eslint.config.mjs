@@ -9,11 +9,11 @@ export default [
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
     languageOptions: {
-        parser,
-        parserOptions: {
-            sourceType: "module"
-        }
-    }
+      parser,
+      parserOptions: {
+        sourceType: "module",
+      },
+    },
   },
   {
     ignores: [
@@ -36,50 +36,43 @@ export default [
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
-          "args": "all",
-          "varsIgnorePattern": "^_",
-          "argsIgnorePattern": "^_"
-        }
+          args: "all",
+          varsIgnorePattern: "^_",
+          argsIgnorePattern: "^_",
+        },
       ],
       "@typescript-eslint/no-use-before-define": "off",
       "no-dupe-class-members": "off",
       "@typescript-eslint/no-dupe-class-members": "error",
       "no-unused-vars": "off",
-      "curly": ["error", "multi-line"],
+      curly: ["error", "multi-line"],
       "no-continue": "off",
       "no-plusplus": "off",
       "no-param-reassign": "off",
       "object-curly-newline": "off",
       "no-underscore-dangle": "off",
-      "quotes": [
-        "error",
-        "single"
-      ],
       "import/prefer-default-export": "off",
       "max-len": [
         "error",
         {
-          "code": 150
-        }
+          code: 150,
+        },
       ],
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ],
-      "eqeqeq": [
+      "comma-dangle": ["error", "always-multiline"],
+      eqeqeq: [
         "error",
         "always",
         {
-          "null": "ignore"
-        }
+          null: "ignore",
+        },
       ],
       "no-magic-numbers": "off",
       "newline-per-chained-call": [
         "off",
         {
-          "ignoreChainWithDepth": 1
-        }
-      ]
+          ignoreChainWithDepth: 1,
+        },
+      ],
     },
   },
 ];
