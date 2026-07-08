@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.54](https://github.com/equinor/videx-vector2/compare/v1.0.53...v1.0.54) (2026-07-08)
+
+
+### Bug Fixes
+
+* **72:** dependabot july 26 ([#76](https://github.com/equinor/videx-vector2/issues/76)) ([774ecf9](https://github.com/equinor/videx-vector2/commit/774ecf91564954cf8311c00159493e27f2f5ebc4))
+* **npm:** bump markdown-it from 14.1.1 to 14.2.0 ([#70](https://github.com/equinor/videx-vector2/issues/70)) ([701266c](https://github.com/equinor/videx-vector2/commit/701266cdd02735188861c726212dc457bddc2848))
+* **npm:** bump markdown-it from 14.2.0 to 14.3.0 ([#74](https://github.com/equinor/videx-vector2/issues/74)) ([6db4aa6](https://github.com/equinor/videx-vector2/commit/6db4aa61d0093d24c7d5eb34c036121f9801283d))
+
 ## [1.0.53](https://github.com/equinor/videx-vector2/compare/v1.0.52...v1.0.53) (2026-04-08)
 
 
