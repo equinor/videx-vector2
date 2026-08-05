@@ -352,8 +352,9 @@ export default class Vector2 {
    */
   clampMagnitude(n: number): Vector2 {
     const len = baseMagnitude(this);
-    if (len > n)
+    if (len > n) {
       return baseScale(this, n / len, this.isMutating ? this : Vector2.zero);
+    }
     return this.isMutating ? this : this.clone();
   }
 
