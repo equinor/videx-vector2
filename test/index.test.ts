@@ -2,13 +2,13 @@
 import Vector2 from '../src/index';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function expectVector2ToBeCloseTo(a : any, b : any, precision : number = 10) {
+function expectVector2ToBeCloseTo(a: any, b: any, precision: number = 10) {
   expect(a[0]).toBeCloseTo(b[0], precision);
   expect(a[1]).toBeCloseTo(b[1], precision);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function expectVector2ToBe(a : any, b : any) {
+function expectVector2ToBe(a: any, b: any) {
   expect(a[0]).toBe(b[0]);
   expect(a[1]).toBe(b[1]);
 }
@@ -32,13 +32,12 @@ describe('Vector2.js', () => {
     const e = new Vector2(3);
     expectVector2ToBe(e, [3, 3]);
 
-    const f = {x: 1, y: 2}
+    const f = { x: 1, y: 2 };
     expectVector2ToBe(new Vector2(f), [1, 2]);
 
-    const g = {x: 2, y: 3, v1: -1, v2: 3, s1: 'abc', f1: () => {}}
+    const g = { x: 2, y: 3, v1: -1, v2: 3, s1: 'abc', f1: () => {} };
     expectVector2ToBe(new Vector2(g), [2, 3]);
   });
-
 
   it('getters/setters', () => {
     const a = new Vector2(1, 2);
@@ -103,7 +102,6 @@ describe('Vector2.js', () => {
     expectVector2ToBe(m, [2, 1]);
   });
 
-
   it('divide', () => {
     expectVector2ToBe(Vector2.divide([2, 6], 2), [1, 3]);
   });
@@ -111,7 +109,6 @@ describe('Vector2.js', () => {
   it('multiply', () => {
     expectVector2ToBe(Vector2.multiply([2, 3], 2), [4, 6]);
   });
-
 
   it('scale', () => {
     const v = new Vector2(2, 3);
@@ -141,12 +138,18 @@ describe('Vector2.js', () => {
 
   it('rotate', () => {
     expectVector2ToBeCloseTo(Vector2.right.rotate(Math.PI / 2), Vector2.up);
-    expectVector2ToBeCloseTo(Vector2.right.rotate(Math.PI / 4), [Math.sqrt(0.5), Math.sqrt(0.5)]);
+    expectVector2ToBeCloseTo(Vector2.right.rotate(Math.PI / 4), [
+      Math.sqrt(0.5),
+      Math.sqrt(0.5),
+    ]);
   });
 
   it('rotateDeg', () => {
     expectVector2ToBeCloseTo(Vector2.right.rotateDeg(90), Vector2.up);
-    expectVector2ToBeCloseTo(Vector2.right.rotateDeg(45), [Math.sqrt(0.5), Math.sqrt(0.5)]);
+    expectVector2ToBeCloseTo(Vector2.right.rotateDeg(45), [
+      Math.sqrt(0.5),
+      Math.sqrt(0.5),
+    ]);
   });
 
   it('rotate90', () => {
@@ -201,7 +204,6 @@ describe('Vector2.js', () => {
     expect(Vector2.cross([2, 3], [4, 5])).toBeCloseTo(-2);
   });
 
-
   it('angleRight', () => {
     expect(Vector2.angleRight(Vector2.up)).toBeCloseTo(Math.PI / 2);
     expect(Vector2.angleRight(Vector2.one)).toBeCloseTo(Math.PI / 4);
@@ -216,7 +218,9 @@ describe('Vector2.js', () => {
 
   it('angle', () => {
     expect(Vector2.angle(Vector2.right, Vector2.up)).toBeCloseTo(Math.PI / 2);
-    expect(Vector2.angle(Vector2.left, Vector2.one)).toBeCloseTo(3 * Math.PI / 4);
+    expect(Vector2.angle(Vector2.left, Vector2.one)).toBeCloseTo(
+      (3 * Math.PI) / 4,
+    );
   });
 
   it('angleDeg', () => {
@@ -225,8 +229,12 @@ describe('Vector2.js', () => {
   });
 
   it('signedAngle', () => {
-    expect(Vector2.signedAngle(Vector2.right, Vector2.up)).toBeCloseTo(Math.PI / 2);
-    expect(Vector2.signedAngle(Vector2.up, Vector2.right)).toBeCloseTo(-Math.PI / 2);
+    expect(Vector2.signedAngle(Vector2.right, Vector2.up)).toBeCloseTo(
+      Math.PI / 2,
+    );
+    expect(Vector2.signedAngle(Vector2.up, Vector2.right)).toBeCloseTo(
+      -Math.PI / 2,
+    );
   });
 
   it('signedAngleDeg', () => {
@@ -235,19 +243,28 @@ describe('Vector2.js', () => {
   });
 
   it('lerp', () => {
-    expectVector2ToBeCloseTo(Vector2.lerp(Vector2.left, Vector2.right, 0.5), Vector2.zero);
     expectVector2ToBeCloseTo(
-      Vector2.lerp(Vector2.left, Vector2.right, 0.25), Vector2.left.scale(0.5),
+      Vector2.lerp(Vector2.left, Vector2.right, 0.5),
+      Vector2.zero,
     );
     expectVector2ToBeCloseTo(
-      Vector2.lerp(Vector2.left, Vector2.right, 0.75), Vector2.right.scale(0.5),
+      Vector2.lerp(Vector2.left, Vector2.right, 0.25),
+      Vector2.left.scale(0.5),
+    );
+    expectVector2ToBeCloseTo(
+      Vector2.lerp(Vector2.left, Vector2.right, 0.75),
+      Vector2.right.scale(0.5),
     );
   });
 
   it('lerpRot', () => {
-    expectVector2ToBeCloseTo(Vector2.lerpRot(Vector2.right, Vector2.left, 0.5), Vector2.up);
     expectVector2ToBeCloseTo(
-      Vector2.lerpRot(Vector2.right, Vector2.left, 0.25), Vector2.one.rescale(1),
+      Vector2.lerpRot(Vector2.right, Vector2.left, 0.5),
+      Vector2.up,
+    );
+    expectVector2ToBeCloseTo(
+      Vector2.lerpRot(Vector2.right, Vector2.left, 0.25),
+      Vector2.one.rescale(1),
     );
   });
 
