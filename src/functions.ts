@@ -1,7 +1,5 @@
 import Vector2 from './index';
-import {
-  VectorLike,
-} from '@equinor/videx-linear-algebra';
+import { VectorLike } from '@equinor/videx-linear-algebra';
 
 /**
  * Rotate vector by a given amount of radians.
@@ -69,7 +67,7 @@ export function rotate270(v: Vector2, target: Vector2): Vector2 {
  * @return Signed area of the parallellogram defined by v1 and v2
  */
 export function cross(a: VectorLike, b: VectorLike): number {
-  return (a[0] * b[1]) - (a[1] * b[0]);
+  return a[0] * b[1] - a[1] * b[0];
 }
 
 /**

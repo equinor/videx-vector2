@@ -1,4 +1,3 @@
-
 import {
   VectorLike,
   add as baseAdd,
@@ -70,7 +69,7 @@ export default class Vector2 {
    * Construct a new Vector2 using an object with an x and y key.
    * @param vector
    */
-  constructor(vector: {x: number, y: number});
+  constructor(vector: { x: number; y: number });
 
   /**
    * Construct a new Vector2.
@@ -78,13 +77,15 @@ export default class Vector2 {
    */
   constructor(...nums: number[]);
 
-  constructor(a: number | VectorLike | {x: number, y: number}, ...b : number[]) {
-    if(typeof a === 'number'){
+  constructor(
+    a: number | VectorLike | { x: number; y: number },
+    ...b: number[]
+  ) {
+    if (typeof a === 'number') {
       if (typeof b[0] === 'number') {
         this[0] = a;
         this[1] = b[0];
-      }
-      else {
+      } else {
         this[0] = a;
         this[1] = a;
       }
@@ -153,7 +154,7 @@ export default class Vector2 {
    * @param value Value of x and y component
    * @returns Reference to self
    */
-  set(value: number): Vector2
+  set(value: number): Vector2;
 
   /**
    * [Mutation] Set both components of vector.
@@ -161,17 +162,17 @@ export default class Vector2 {
    * @param y New y component of vector
    * @returns Reference to self
    */
-  set(x: number, y: number): Vector2
+  set(x: number, y: number): Vector2;
 
   /**
    * [Mutation] Set both components of vector.
    * @param vector Vector-like object with values on the format: [ x, y ]
    * @returns Reference to self
    */
-  set(vector: VectorLike): Vector2
+  set(vector: VectorLike): Vector2;
 
-  set(a: number|VectorLike, b?: number): Vector2 {
-    if(typeof a === 'number'){
+  set(a: number | VectorLike, b?: number): Vector2 {
+    if (typeof a === 'number') {
       if (typeof b === 'number') {
         this[0] = a;
         this[1] = b;
@@ -192,21 +193,21 @@ export default class Vector2 {
    * @param y Y component to add
    * @returns Resulting vector
    */
-  add(x: number, y: number): Vector2
+  add(x: number, y: number): Vector2;
 
   /**
    * Add values of given vector to target vector.
    * @param vector Vector to add
    * @returns Resulting vector
    */
-  add(vector: VectorLike): Vector2
+  add(vector: VectorLike): Vector2;
 
-  add(a: number|VectorLike, b: number = 0): Vector2 {
-    if(typeof a === 'number') {
-      if(this.isMutating)  return baseAdd(this, [a, b]);
+  add(a: number | VectorLike, b: number = 0): Vector2 {
+    if (typeof a === 'number') {
+      if (this.isMutating) return baseAdd(this, [a, b]);
       return baseAdd(this.clone(), [a, b]);
     }
-    if(this.isMutating)  return baseAdd(this, a);
+    if (this.isMutating) return baseAdd(this, a);
     return baseAdd(this.clone(), a);
   }
 
@@ -230,21 +231,21 @@ export default class Vector2 {
    * @param y Y component to subtract
    * @returns Resulting vector
    */
-  sub(x: number, y: number): Vector2
+  sub(x: number, y: number): Vector2;
 
   /**
    * Subtract from vector.
    * @param vector Vector to subtract
    * @returns Resulting vector
    */
-  sub(vector: VectorLike): Vector2
+  sub(vector: VectorLike): Vector2;
 
-  sub(a: number|VectorLike, b: number = 0): Vector2 {
-    if(typeof a === 'number') {
-      if(this.isMutating)  return baseSub(this, [a, b]);
+  sub(a: number | VectorLike, b: number = 0): Vector2 {
+    if (typeof a === 'number') {
+      if (this.isMutating) return baseSub(this, [a, b]);
       return baseSub(this.clone(), [a, b]);
     }
-    if(this.isMutating)  return baseSub(this, a);
+    if (this.isMutating) return baseSub(this, a);
     return baseSub(this.clone(), a);
   }
 
@@ -269,7 +270,7 @@ export default class Vector2 {
    * @param y Y component to subtract from
    * @returns Resulting vector
    */
-  subFrom(x: number, y: number): Vector2
+  subFrom(x: number, y: number): Vector2;
 
   /**
    * target - this
@@ -278,18 +279,18 @@ export default class Vector2 {
    * @param vector Vector to to subtract from
    * @returns Resulting vector
    */
-  subFrom(vector: VectorLike): Vector2
+  subFrom(vector: VectorLike): Vector2;
 
-  subFrom(a: number|VectorLike, b: number = 0): Vector2 {
-    if(typeof a === 'number') {
-      if(this.isMutating) {
+  subFrom(a: number | VectorLike, b: number = 0): Vector2 {
+    if (typeof a === 'number') {
+      if (this.isMutating) {
         this[0] = a - this[0];
         this[1] = b - this[1];
         return this;
       }
       return new Vector2(a - this[0], b - this[1]);
     }
-    if(this.isMutating) {
+    if (this.isMutating) {
       this[0] = a[0] - this[0];
       this[1] = a[1] - this[1];
       return this;
@@ -351,7 +352,9 @@ export default class Vector2 {
    */
   clampMagnitude(n: number): Vector2 {
     const len = baseMagnitude(this);
-    if (len > n) return baseScale(this, n / len, this.isMutating ? this : Vector2.zero);
+    if (len > n) {
+      return baseScale(this, n / len, this.isMutating ? this : Vector2.zero);
+    }
     return this.isMutating ? this : this.clone();
   }
 
@@ -584,7 +587,7 @@ export default class Vector2 {
    * Create an array from the vector.
    * @returns Array on the format: [ x, y ]
    */
-  toArray() : [number, number] {
+  toArray(): [number, number] {
     return [this[0], this[1]];
   }
 
@@ -602,60 +605,79 @@ export default class Vector2 {
     let i = 0;
     return {
       next: () => {
-        switch(i++) {
-          case 0: return {value: this[0], done: false};
-          case 1: return {value: this[1], done: false};
-          default: return {value: -1, done: true};
+        switch (i++) {
+          case 0:
+            return { value: this[0], done: false };
+          case 1:
+            return { value: this[1], done: false };
+          default:
+            return { value: -1, done: true };
         }
       },
     };
-  };
+  }
 
   /**
    * Vector2 with values: [0, 0].
    * @memberof Vector2
    */
-  static get zero() : Vector2 { return new Vector2(0, 0); }
+  static get zero(): Vector2 {
+    return new Vector2(0, 0);
+  }
 
   /**
    * Vector2 with values: [1, 1].
    * @memberof Vector2
    */
-  static get one() : Vector2 { return new Vector2(1, 1); }
+  static get one(): Vector2 {
+    return new Vector2(1, 1);
+  }
 
   /**
    * Vector2 with values: [∞, ∞].
    * @memberof Vector2
    */
-  static get positiveInfinity() : Vector2 { return new Vector2(Infinity, Infinity); }
+  static get positiveInfinity(): Vector2 {
+    return new Vector2(Infinity, Infinity);
+  }
 
   /**
    * Vector2 with values: [-∞, -∞].
    * @memberof Vector2
    */
-  static get negativeInfinity() : Vector2 { return new Vector2(-Infinity, -Infinity); }
+  static get negativeInfinity(): Vector2 {
+    return new Vector2(-Infinity, -Infinity);
+  }
 
   /**
    * Vector2 with values: [0, 1].
    * @memberof Vector2
    */
-  static get up() : Vector2 { return new Vector2(0, 1); }
+  static get up(): Vector2 {
+    return new Vector2(0, 1);
+  }
 
   /**
    * Vector2 with values: [1, 0].
    * @memberof Vector2
    */
-  static get right() : Vector2 { return new Vector2(1, 0); }
+  static get right(): Vector2 {
+    return new Vector2(1, 0);
+  }
 
   /**
    * Vector2 with values: [0, -1].
    * @memberof Vector2
    */
-  static get down() : Vector2 { return new Vector2(0, -1); }
+  static get down(): Vector2 {
+    return new Vector2(0, -1);
+  }
 
   /**
    * Vector2 with values: [-1, 0].
    * @memberof Vector2
    */
-  static get left() : Vector2 { return new Vector2(-1, 0); }
+  static get left(): Vector2 {
+    return new Vector2(-1, 0);
+  }
 }
