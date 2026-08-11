@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.55](https://github.com/equinor/videx-vector2/compare/v1.0.54...v1.0.55) (2026-08-06)
+
+
+### Bug Fixes
+
+* **83:** add and run prettier ([#87](https://github.com/equinor/videx-vector2/issues/87)) ([be7f263](https://github.com/equinor/videx-vector2/commit/be7f2632b43d56a106be98b15d6d86f5347db210))
+
 ## [1.0.54](https://github.com/equinor/videx-vector2/compare/v1.0.53...v1.0.54) (2026-07-08)
 
 
