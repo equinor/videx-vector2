@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.56](https://github.com/equinor/videx-vector2/compare/v1.0.55...v1.0.56) (2026-08-12)
+
+
+### Bug Fixes
+
+* **taskless:** bump brace-expansion, nanoid and js-yaml ([#91](https://github.com/equinor/videx-vector2/issues/91)) ([2ee29ec](https://github.com/equinor/videx-vector2/commit/2ee29ecab5edb81be5684f2442d39afc4843273c))
+
 ## [1.0.55](https://github.com/equinor/videx-vector2/compare/v1.0.54...v1.0.55) (2026-08-06)
 
 
