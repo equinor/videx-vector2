@@ -1,0 +1,96 @@
+name: Run Node Tests with Code Coverage
+
+on:
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  generate-test-results:
+    name: Generate Test Results
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+
+    env:
+      NODE_VERSION: '24.x'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v6.0.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests with coverage
+        id: test
+        continue-on-error: true
+        run: npm run test:coverage
+        env:
+          CI: true
+
+      - name: Publish Code Coverage Report
+        if: ${{ always() && hashFiles('coverage/Cobertura.xml') != '' }}
+        uses: irongut/CodeCoverageSummary@51cc3a756ddcd398d447c044c02cb6aa83fdae95 # v1.3.0
+        with:
+          filename: coverage/Cobertura.xml
+          badge: true
+          fail_below_min: false
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: false
+          indicators: true
+          output: both
+          thresholds: '10 30'
+
+      - name: Add Coverage Summary
+        if: ${{ always() && hashFiles('code-coverage-results.md') != '' }}
+        run: cat code-coverage-results.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Add Coverage PR Comment
+        if: ${{ always() && github.event_name == 'pull_request' && !github.event.pull_request.head.repo.fork && hashFiles('code-coverage-results.md') != '' }}
+        uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
+        with:
+          recreate: true
+          path: code-coverage-results.md
+
+      - name: Upload Coverage Artifacts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: coverage
+          path: |
+            coverage/Cobertura.xml
+            code-coverage-results.md
+          retention-days: 5
+          if-no-files-found: warn
+
+      - name: Upload Test Result Files
+        if: ${{ always() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: test-results
+          path: test-results/junit.xml
+          retention-days: 5
+          if-no-files-found: warn
+
+      - name: Publish Test Results
+        if: ${{ always() && hashFiles('test-results/junit.xml') != '' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork == false) }}
+        uses: EnricoMi/publish-unit-test-result-action@d0a4676d0e0b938bc201470d88276b7c74c712b3 # v2.24.0
+        with:
+          files: test-results/junit.xml
+
+      - name: Fail job if tests failed
+        if: ${{ always() && steps.test.outcome == 'failure' }}
+        run: exit 1

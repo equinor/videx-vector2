@@ -1,2 +1,6 @@
 node_modules
 dist
+/coverage/
+/Cobertura.xml
+/code-coverage-results.md
+/test-results/
