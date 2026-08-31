@@ -18,14 +18,41 @@ jobs:
       coverage-ready: ${{ steps.upload-coverage.outcome == 'success' }}
       junit-ready: ${{ steps.upload-junit.outcome == 'success' }}
     steps:
+      - name: Locate source report artifacts
+        id: source-artifacts
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const artifacts = await github.paginate(
+              github.rest.actions.listWorkflowRunArtifacts,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: context.payload.workflow_run.id,
+                per_page: 100,
+              },
+            );
+
+            const idFor = (name) => {
+              const artifact = artifacts.find(
+                (candidate) => candidate.name === name && !candidate.expired,
+              );
+              return artifact ? String(artifact.id) : '';
+            };
+
+            core.setOutput('coverage-id', idFor('coverage'));
+            core.setOutput('junit-id', idFor('test-results'));
+
       - name: Download coverage artifact
         id: download-coverage
+        if: ${{ steps.source-artifacts.outputs.coverage-id != '' }}
         continue-on-error: true
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
         with:
           github-token: ${{ github.token }}
           run-id: ${{ github.event.workflow_run.id }}
-          name: coverage
+          artifact-ids: ${{ steps.source-artifacts.outputs.coverage-id }}
           path: input/coverage
 
       - name: Validate coverage report
@@ -34,7 +61,7 @@ jobs:
         continue-on-error: true
         run: |
           set -euo pipefail
-          report=input/coverage/coverage/Cobertura.xml
+          report=input/coverage/Cobertura.xml
           test -s "$report"
           test "$(wc -c < "$report")" -le 5242880
           ! grep -Eiq '<!DOCTYPE|<!ENTITY' "$report"
@@ -45,7 +72,7 @@ jobs:
         continue-on-error: true
         uses: irongut/CodeCoverageSummary@51cc3a756ddcd398d447c044c02cb6aa83fdae95 # v1.3.0
         with:
-          filename: input/coverage/coverage/Cobertura.xml
+          filename: input/coverage/Cobertura.xml
           badge: true
           fail_below_min: false
           format: markdown
@@ -74,15 +101,45 @@ jobs:
             echo "run-id=$run_id" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Locate master baseline artifact
+        id: baseline-artifact
+        if: ${{ steps.baseline.outputs.run-id != '' }}
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        env:
+          BASELINE_RUN_ID: ${{ steps.baseline.outputs.run-id }}
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const runId = Number(process.env.BASELINE_RUN_ID);
+            if (!Number.isSafeInteger(runId) || runId <= 0) {
+              core.setOutput('id', '');
+              return;
+            }
+
+            const artifacts = await github.paginate(
+              github.rest.actions.listWorkflowRunArtifacts,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: runId,
+                per_page: 100,
+              },
+            );
+            const artifact = artifacts.find(
+              (candidate) =>
+                candidate.name === 'coverage-master-baseline' && !candidate.expired,
+            );
+            core.setOutput('id', artifact ? String(artifact.id) : '');
+
       - name: Download master baseline
         id: download-baseline
-        if: ${{ steps.baseline.outputs.run-id != '' }}
+        if: ${{ steps.baseline-artifact.outputs.id != '' }}
         continue-on-error: true
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
         with:
           github-token: ${{ github.token }}
           run-id: ${{ steps.baseline.outputs.run-id }}
-          name: coverage-master-baseline
+          artifact-ids: ${{ steps.baseline-artifact.outputs.id }}
           path: input/baseline
 
       - name: Create coverage comparison
@@ -96,7 +153,7 @@ jobs:
 
           report = Path('coverage-report.md')
           report.write_text(Path('code-coverage-results.md').read_text(encoding='utf-8'), encoding='utf-8')
-          baseline = Path('input/baseline/coverage/Cobertura.xml')
+          baseline = Path('input/baseline/Cobertura.xml')
           if not baseline.is_file():
               report.write_text(report.read_text(encoding='utf-8') + '\n> Coverage delta unavailable: no successful retained master baseline exists for this PR base.\n', encoding='utf-8')
               raise SystemExit
@@ -111,7 +168,7 @@ jobs:
                   values[name] = value
               return values
 
-          current = rates(Path('input/coverage/coverage/Cobertura.xml'))
+          current = rates(Path('input/coverage/Cobertura.xml'))
           master = rates(baseline)
           rows = []
           for label, covered, valid in (('Lines', 'lines-covered', 'lines-valid'), ('Branches', 'branches-covered', 'branches-valid')):
@@ -134,12 +191,13 @@ jobs:
 
       - name: Download test results
         id: download-junit
+        if: ${{ steps.source-artifacts.outputs.junit-id != '' }}
         continue-on-error: true
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
         with:
           github-token: ${{ github.token }}
           run-id: ${{ github.event.workflow_run.id }}
-          name: test-results
+          artifact-ids: ${{ steps.source-artifacts.outputs.junit-id }}
           path: input/test-results
 
       - name: Validate test results
@@ -148,7 +206,7 @@ jobs:
         continue-on-error: true
         run: |
           set -euo pipefail
-          report=input/test-results/test-results/junit.xml
+          report=input/test-results/junit.xml
           test -s "$report"
           test "$(wc -c < "$report")" -le 5242880
           ! grep -Eiq '<!DOCTYPE|<!ENTITY' "$report"
@@ -159,7 +217,7 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: validated-test-results
-          path: input/test-results/test-results/junit.xml
+          path: input/test-results/junit.xml
           retention-days: 5
           if-no-files-found: error
 
