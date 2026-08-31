@@ -61,7 +61,7 @@ jobs:
         continue-on-error: true
         run: |
           set -euo pipefail
-          report=input/coverage/coverage/Cobertura.xml
+          report=input/coverage/Cobertura.xml
           test -s "$report"
           test "$(wc -c < "$report")" -le 5242880
           ! grep -Eiq '<!DOCTYPE|<!ENTITY' "$report"
@@ -72,7 +72,7 @@ jobs:
         continue-on-error: true
         uses: irongut/CodeCoverageSummary@51cc3a756ddcd398d447c044c02cb6aa83fdae95 # v1.3.0
         with:
-          filename: input/coverage/coverage/Cobertura.xml
+          filename: input/coverage/Cobertura.xml
           badge: true
           fail_below_min: false
           format: markdown
@@ -91,12 +91,17 @@ jobs:
           BASE_SHA: ${{ github.event.workflow_run.pull_requests[0].base.sha }}
         run: |
           set -euo pipefail
-          run_id=$(curl --fail --silent --show-error \
+          response=$(curl --fail --silent --show-error \
             --header "Authorization: Bearer $GH_TOKEN" \
             --header 'X-GitHub-Api-Version: 2022-11-28' \
-            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/workflows/test-node-codecov.yml/runs?branch=master&event=push&status=success&per_page=100" \
-            | jq -r --arg sha "$BASE_SHA" '.workflow_runs[] | select(.head_sha == $sha and .conclusion == "success") | .id' \
-            | head -n 1)
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/workflows/test-node-codecov.yml/runs?branch=master&event=push&status=success&per_page=100")
+          run_id=$(jq -r --arg sha "$BASE_SHA" '
+            if (.workflow_runs | type) == "array" then
+              ([.workflow_runs[] | select(.head_sha == $sha and .conclusion == "success") | .id][0] // "")
+            else
+              error("Unexpected workflow runs response")
+            end
+          ' <<< "$response")
           if [ -n "$run_id" ]; then
             echo "run-id=$run_id" >> "$GITHUB_OUTPUT"
           fi
@@ -153,7 +158,7 @@ jobs:
 
           report = Path('coverage-report.md')
           report.write_text(Path('code-coverage-results.md').read_text(encoding='utf-8'), encoding='utf-8')
-          baseline = Path('input/baseline/coverage/Cobertura.xml')
+          baseline = Path('input/baseline/Cobertura.xml')
           if not baseline.is_file():
               report.write_text(report.read_text(encoding='utf-8') + '\n> Coverage delta unavailable: no successful retained master baseline exists for this PR base.\n', encoding='utf-8')
               raise SystemExit
@@ -168,7 +173,7 @@ jobs:
                   values[name] = value
               return values
 
-          current = rates(Path('input/coverage/coverage/Cobertura.xml'))
+          current = rates(Path('input/coverage/Cobertura.xml'))
           master = rates(baseline)
           rows = []
           for label, covered, valid in (('Lines', 'lines-covered', 'lines-valid'), ('Branches', 'branches-covered', 'branches-valid')):
@@ -206,7 +211,7 @@ jobs:
         continue-on-error: true
         run: |
           set -euo pipefail
-          report=input/test-results/test-results/junit.xml
+          report=input/test-results/junit.xml
           test -s "$report"
           test "$(wc -c < "$report")" -le 5242880
           ! grep -Eiq '<!DOCTYPE|<!ENTITY' "$report"
@@ -217,7 +222,7 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: validated-test-results
-          path: input/test-results/test-results/junit.xml
+          path: input/test-results/junit.xml
           retention-days: 5
           if-no-files-found: error
 
