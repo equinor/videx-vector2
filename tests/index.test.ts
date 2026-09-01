@@ -1,3 +1,4 @@
+/* oxlint-disable vitest/expect-expect */
 /* eslint-disable no-undef */
 import Vector2 from '../src/index';
 
