@@ -28,7 +28,8 @@
     "docs": "typedoc --out docs src",
     "postdocs": "node postdocs.copyfiles.mjs",
     "lint": "eslint --color",
-    "prettier": "prettier . --write"
+    "prettier": "prettier . --write",
+    "lintOx": "oxlint"
   },
   "repository": {
     "type": "git",
@@ -54,6 +55,7 @@
     "@vitest/coverage-v8": "^4.1.10",
     "eslint": "^9.39.2",
     "eslint-plugin-import": "^2.32.0",
+    "oxlint": "^1.80.0",
     "prettier": "^3.9.6",
     "rimraf": "^3.0.1",
     "rollup": "^4.62.2",
