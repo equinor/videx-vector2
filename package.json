@@ -27,9 +27,8 @@
     "predocs": "rimraf docs",
     "docs": "typedoc --out docs src",
     "postdocs": "node postdocs.copyfiles.mjs",
-    "lint": "eslint --color",
-    "prettier": "prettier . --write",
-    "lintOx": "oxlint"
+    "lint": "oxlint",
+    "prettier": "prettier . --write"
   },
   "repository": {
     "type": "git",
@@ -50,11 +49,7 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^1.0.0",
     "@rollup/plugin-typescript": "^12.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.50.1",
-    "@typescript-eslint/parser": "^8.50.1",
     "@vitest/coverage-v8": "^4.1.10",
-    "eslint": "^9.39.2",
-    "eslint-plugin-import": "^2.32.0",
     "oxlint": "^1.80.0",
     "prettier": "^3.9.6",
     "rimraf": "^3.0.1",
