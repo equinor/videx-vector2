@@ -35,6 +35,10 @@ jobs:
         continue-on-error: true
         run: npm run test:coverage
 
+      - name: Debug coverage output
+        if: ${{ always() }}
+        run: find coverage/ -type f 2>/dev/null || echo "coverage/ directory does not exist"
+
       - name: Upload Coverage Artifacts
         if: ${{ always() }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
