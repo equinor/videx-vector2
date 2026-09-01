@@ -10,13 +10,15 @@ permissions: {}
 jobs:
   prepare-reports:
     name: Prepare test and coverage reports
-    if: ${{ github.event.workflow_run.event != 'pull_request' || github.event.workflow_run.pull_requests[0].head.repo.fork == false }}
+    if: ${{ github.event.workflow_run.event != 'pull_request' || github.event.workflow_run.head_repository.full_name == github.repository }}
     runs-on: ubuntu-24.04
     permissions:
       actions: read
     outputs:
       coverage-ready: ${{ steps.upload-coverage.outcome == 'success' }}
       junit-ready: ${{ steps.upload-junit.outcome == 'success' }}
+      is-same-repo: ${{ steps.source-artifacts.outputs.is-same-repo }}
+      base-sha: ${{ steps.source-artifacts.outputs.base-sha }}
     steps:
       - name: Locate source report artifacts
         id: source-artifacts
@@ -44,11 +46,15 @@ jobs:
             core.setOutput('coverage-id', idFor('coverage'));
             core.setOutput('junit-id', idFor('test-results'));
 
+            const pr = context.payload.workflow_run.pull_requests?.[0];
+            core.setOutput('is-same-repo', String(context.payload.workflow_run.head_repository?.full_name === context.payload.workflow_run.repository?.full_name));
+            core.setOutput('base-sha', pr?.base?.sha ?? '');
+
       - name: Download coverage artifact
         id: download-coverage
         if: ${{ steps.source-artifacts.outputs.coverage-id != '' }}
         continue-on-error: true
-        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           github-token: ${{ github.token }}
           run-id: ${{ github.event.workflow_run.id }}
@@ -88,7 +94,7 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-          BASE_SHA: ${{ github.event.workflow_run.pull_requests[0].base.sha }}
+          BASE_SHA: ${{ steps.source-artifacts.outputs.base-sha }}
         run: |
           set -euo pipefail
           response=$(curl --fail --silent --show-error \
@@ -140,7 +146,7 @@ jobs:
         id: download-baseline
         if: ${{ steps.baseline-artifact.outputs.id != '' }}
         continue-on-error: true
-        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           github-token: ${{ github.token }}
           run-id: ${{ steps.baseline.outputs.run-id }}
@@ -198,7 +204,7 @@ jobs:
         id: download-junit
         if: ${{ steps.source-artifacts.outputs.junit-id != '' }}
         continue-on-error: true
-        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           github-token: ${{ github.token }}
           run-id: ${{ github.event.workflow_run.id }}
@@ -238,7 +244,7 @@ jobs:
       - name: Download coverage summary
         id: coverage
         if: ${{ needs.prepare-reports.outputs.coverage-ready == 'true' }}
-        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: coverage-summary
           path: coverage-summary
@@ -248,7 +254,7 @@ jobs:
         run: cat coverage-summary/coverage-report.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Add coverage PR comment
-        if: ${{ steps.coverage.outcome == 'success' && github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.pull_requests[0].head.repo.fork == false }}
+        if: ${{ steps.coverage.outcome == 'success' && github.event.workflow_run.event == 'pull_request' && needs.prepare-reports.outputs.is-same-repo == 'true' }}
         uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
         with:
           path: coverage-summary/coverage-report.md
@@ -256,13 +262,13 @@ jobs:
       - name: Download test results
         id: junit
         if: ${{ needs.prepare-reports.outputs.junit-ready == 'true' }}
-        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: validated-test-results
           path: test-results
 
       - name: Publish test results
-        if: ${{ steps.junit.outcome == 'success' && (github.event.workflow_run.event != 'pull_request' || github.event.workflow_run.pull_requests[0].head.repo.fork == false) }}
+        if: ${{ steps.junit.outcome == 'success' && (github.event.workflow_run.event != 'pull_request' || needs.prepare-reports.outputs.is-same-repo == 'true') }}
         uses: EnricoMi/publish-unit-test-result-action@d0a4676d0e0b938bc201470d88276b7c74c712b3 # v2.24.0
         with:
           files: test-results/junit.xml
