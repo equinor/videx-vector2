@@ -21,7 +21,7 @@ import Vector2 from '@equinor/videx-vector2';
 // ObservableHQ
 Vector2 = require('@equinor/videx-vector2@X.X.X');
 ```
-Where X.X.X is desired version number.
+Where X.X.X is the desired version number.
 
 ## Available functions
 
