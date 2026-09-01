@@ -9,6 +9,6 @@
     "target": "es6",
     "types": ["vitest/globals"]
   },
-  "include": ["src/*", "test/*"],
+  "include": ["src/*", "tests/*"],
   "exclude": ["node_modules"]
 }
