@@ -298,6 +298,16 @@ describe('Vector2.js', () => {
     const a = new Vector2(0, 0.0000001);
     expect(a.isZeroVector()).toBeFalsy();
     expect(a.isZeroVector(0.000001)).toBeTruthy();
+
+    expect(Vector2.isZeroVector([0, 0.0000001])).toBeFalsy();
+    expect(Vector2.isZeroVector([0, 0.0000001], 0.000001)).toBeTruthy();
+  });
+
+  it('mutable/immutable', () => {
+    const a = new Vector2(1, 2);
+    expect(a.isMutating).toBeFalsy();
+    expect(a.mutable.isMutating).toBeTruthy();
+    expect(a.immutable.isMutating).toBeFalsy();
   });
 
   it('toArray', () => {
