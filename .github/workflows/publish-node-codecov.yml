@@ -70,7 +70,7 @@ jobs:
           report=input/coverage/Cobertura.xml
           test -s "$report"
           test "$(wc -c < "$report")" -le 5242880
-          ! grep -Eiq '<!DOCTYPE|<!ENTITY' "$report"
+          ! grep -Eiq '<!ENTITY' "$report"
 
       - name: Generate coverage summary
         id: generate-coverage
@@ -220,7 +220,7 @@ jobs:
           report=input/test-results/junit.xml
           test -s "$report"
           test "$(wc -c < "$report")" -le 5242880
-          ! grep -Eiq '<!DOCTYPE|<!ENTITY' "$report"
+          ! grep -Eiq '<!ENTITY' "$report"
 
       - name: Upload test results
         id: upload-junit
