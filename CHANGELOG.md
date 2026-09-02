@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.57](https://github.com/equinor/videx-vector2/compare/v1.0.56...v1.0.57) (2026-09-01)
+
+
+### Bug Fixes
+
+* add unit test for mutable immutable ([#108](https://github.com/equinor/videx-vector2/issues/108)) ([d684aa6](https://github.com/equinor/videx-vector2/commit/d684aa622b41038c7afe63ccf97f721a6c4fe5d3))
+* replace eslint with oxlint ([#101](https://github.com/equinor/videx-vector2/issues/101)) ([6e59a0b](https://github.com/equinor/videx-vector2/commit/6e59a0ba83d647f224e28ac2896d44bd2d83f131))
+
 ## [1.0.56](https://github.com/equinor/videx-vector2/compare/v1.0.55...v1.0.56) (2026-08-12)
 
 
