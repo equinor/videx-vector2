@@ -5,7 +5,7 @@
     "node_modules/*",
     "dist/*",
     "docs/*",
-    "*.config.js"
+    "*.config.*"
     ],
   "categories": {
     "correctness": "error",
