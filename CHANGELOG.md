@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.58](https://github.com/equinor/videx-vector2/compare/v1.0.57...v1.0.58) (2026-09-14)
+
+
+### Bug Fixes
+
+* align oxlint configs ([#112](https://github.com/equinor/videx-vector2/issues/112)) ([63a3b23](https://github.com/equinor/videx-vector2/commit/63a3b23e8579af40cb56e466e11bc85ab796061b))
+* vitest security issue ([#113](https://github.com/equinor/videx-vector2/issues/113)) ([40e6770](https://github.com/equinor/videx-vector2/commit/40e67702302f6104aeddefd5eba8c882ff550e30))
+
 ## [1.0.57](https://github.com/equinor/videx-vector2/compare/v1.0.56...v1.0.57) (2026-09-01)
 
 
