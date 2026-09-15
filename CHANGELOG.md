@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.59](https://github.com/equinor/videx-vector2/compare/v1.0.58...v1.0.59) (2026-09-15)
+
+
+### Bug Fixes
+
+* align oxlint configs ps 2 ([#118](https://github.com/equinor/videx-vector2/issues/118)) ([24a610f](https://github.com/equinor/videx-vector2/commit/24a610f3f50b114d4850bcdccede50ab31487471))
+
 ## [1.0.58](https://github.com/equinor/videx-vector2/compare/v1.0.57...v1.0.58) (2026-09-14)
 
 
