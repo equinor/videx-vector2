@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.60](https://github.com/equinor/videx-vector2/compare/v1.0.59...v1.0.60) (2026-09-15)
+
+
+### Bug Fixes
+
+* **94:** replace rimraf with native script ([#120](https://github.com/equinor/videx-vector2/issues/120)) ([dc7a6a7](https://github.com/equinor/videx-vector2/commit/dc7a6a7efdda1b5e6235efc0e24e229d08d02abb))
+
 ## [1.0.59](https://github.com/equinor/videx-vector2/compare/v1.0.58...v1.0.59) (2026-09-15)
 
 
