@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.61](https://github.com/equinor/videx-vector2/compare/v1.0.60...v1.0.61) (2026-09-22)
+
+
+### Bug Fixes
+
+* **ci:** make release publishing restartable ([#123](https://github.com/equinor/videx-vector2/issues/123)) ([afb1b8d](https://github.com/equinor/videx-vector2/commit/afb1b8da7aa6ef650019bbc099fc26d972c31ee5))
+
 ## [1.0.60](https://github.com/equinor/videx-vector2/compare/v1.0.59...v1.0.60) (2026-09-15)
 
 
