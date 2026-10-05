@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.61](https://github.com/equinor/videx-vector2/compare/v1.0.60...v1.0.61) (2026-10-05)
+
+
+### Bug Fixes
+
+* **ci:** make release publishing restartable ([#123](https://github.com/equinor/videx-vector2/issues/123)) ([afb1b8d](https://github.com/equinor/videx-vector2/commit/afb1b8da7aa6ef650019bbc099fc26d972c31ee5))
+* **npm:** bump brace-expansion from 5.0.9 to 5.0.12 ([#128](https://github.com/equinor/videx-vector2/issues/128)) ([2f96335](https://github.com/equinor/videx-vector2/commit/2f96335295de25c2fa02c6e56e6ab0dfb0dcdf93))
+* **npm:** bump markdown-it from 14.3.0 to 14.3.2 ([#129](https://github.com/equinor/videx-vector2/issues/129)) ([c1e3f1b](https://github.com/equinor/videx-vector2/commit/c1e3f1b11a08fe52ed878553e5547b2231f74b79))
+
 ## [1.0.60](https://github.com/equinor/videx-vector2/compare/v1.0.59...v1.0.60) (2026-09-15)
 
 
