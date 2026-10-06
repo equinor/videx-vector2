@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.62](https://github.com/equinor/videx-vector2/compare/v1.0.61...v1.0.62) (2026-10-06)
+
+
+### Bug Fixes
+
+* **npm:** bump source-map-js from 1.2.1 to 1.2.2 ([#130](https://github.com/equinor/videx-vector2/issues/130)) ([94c8317](https://github.com/equinor/videx-vector2/commit/94c83174707ed3e83281ad8ded38a84253501a9a))
+
 ## [1.0.61](https://github.com/equinor/videx-vector2/compare/v1.0.60...v1.0.61) (2026-10-05)
 
 
