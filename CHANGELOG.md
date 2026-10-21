@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.63](https://github.com/equinor/videx-vector2/compare/v1.0.62...v1.0.63) (2026-10-21)
+
+
+### Bug Fixes
+
+* **npm:** bump markdown-it from 14.3.2 to 14.3.3 ([#135](https://github.com/equinor/videx-vector2/issues/135)) ([bd6138c](https://github.com/equinor/videx-vector2/commit/bd6138c07480bb21aee04dc4eabfc4cb9840768c))
+* **npm:** bump vite from 8.3.0 to 8.3.4 ([#133](https://github.com/equinor/videx-vector2/issues/133)) ([82b1c00](https://github.com/equinor/videx-vector2/commit/82b1c00eed422e8388c84d94ba0b2d31ec426d59))
+
 ## [1.0.62](https://github.com/equinor/videx-vector2/compare/v1.0.61...v1.0.62) (2026-10-06)
 
 
