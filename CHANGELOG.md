@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.64](https://github.com/equinor/videx-vector2/compare/v1.0.63...v1.0.64) (2026-10-27)
+
+
+### Bug Fixes
+
+* **npm:** bump serialize-javascript from 7.0.5 to 7.1.4 ([#138](https://github.com/equinor/videx-vector2/issues/138)) ([3909a44](https://github.com/equinor/videx-vector2/commit/3909a44708eef4a76fe113c28c572d1c8edcb67f))
+
 ## [1.0.63](https://github.com/equinor/videx-vector2/compare/v1.0.62...v1.0.63) (2026-10-21)
 
 
